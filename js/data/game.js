@@ -85,8 +85,8 @@ var game = {
     achievements: [
         new Achievement("sus", "start the game", "?", () => game.layers[0] && game.layers[0].resource.gt(0)),
         new Achievement("pointy", "get epic pointy thing", "☛", () => game.layers[1] && game.layers[1].resource.gt(1)),
-        new Achievement("gun", "bang bang bang - kitchen gun guy", "🔫", () => game.layers[1] && game.layers[1].resource.gt(1)),
-        new Achievement("when life gives you tasks", "turn them into useless upgrades that nobody will use", "🗡", () => game.layers[1] && game.layers[1].resource.gt(1)),
+        new Achievement("gun", "bang bang bang - kitchen gun guy", "🔫", () => game.layers[2] && game.layers[2].resource.gt(1)),
+        new Achievement("when life gives you tasks", "turn them into useless upgrades that nobody will use", "🗡", () => game.layers[3] && game.layers[3].resource.gt(1)),
         new Achievement("WHEN THE IM-", "hey hey its the icon from the game called sussy layers", "ඞ", () => game.layers[4] && game.layers[4].resource.gt(1)),
         new Achievement("impostor impostor", "double impostor!??!?", PrestigeLayer.getNameForLayer(9), () => game.layers[9] && game.layers[9].resource.gt(1)),
         new Achievement("sussy mode", "you are the impostor", PrestigeLayer.getNameForLayer(23), () => game.metaLayer.active),
