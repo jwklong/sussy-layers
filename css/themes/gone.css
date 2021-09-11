@@ -1,0 +1,18 @@
+:root{
+    --background-body: #000000;
+    --background-header: #000000;
+    --color-base: #000000;
+    --color-primary: #000000;
+    --color-hover: #000000;
+    --color-hover-strong: #000000;
+    --color-contrast: #000000;
+    --color-success: #000000;
+    --button-dark: #000000;
+    --notification--error: #000000;
+    --notification--success: #000000;
+    --notification--special: #000000;
+}
+
+img[src*=".svg"]{
+    filter: invert(0);
+}
