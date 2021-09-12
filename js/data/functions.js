@@ -167,8 +167,8 @@ var functions = {
         game.timeSaved = Date.now();
         try
         {
-            localStorage.setItem("SussyLayers", this.getSaveString());
-            localStorage.setItem("SussyLayers_Settings", this.getSettingsSaveString());
+            localStorage.setItem("OmegaLayers", this.getSaveString());
+            localStorage.setItem("OmegaLayers_Settings", this.getSettingsSaveString());
             if(game.settings.notifications && game.settings.saveNotifications)
             {
                 functions.createNotification(new Notification(NOTIFICATION_STANDARD, "Game Saved!", "images/save.svg"));
@@ -186,7 +186,7 @@ var functions = {
     {
         let loadObj;
         let isImported = str !== undefined;
-        str = str || localStorage.getItem("SussyLayers") || null;
+        str = str || localStorage.getItem("OmegaLayers") || null;
         if(str === null) return;
         if(str === "among us")
         {
@@ -291,7 +291,7 @@ var functions = {
             game.metaLayer = new MetaLayer();
         }
 
-        if(localStorage.getItem("SussyLayers_Settings") !== null)
+        if(localStorage.getItem("OmegaLayers_Settings") !== null)
         {
             try
             {
