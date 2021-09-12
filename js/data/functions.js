@@ -167,8 +167,8 @@ var functions = {
         game.timeSaved = Date.now();
         try
         {
-            localStorage.setItem("OmegaLayers", this.getSaveString());
-            localStorage.setItem("OmegaLayers_Settings", this.getSettingsSaveString());
+            localStorage.setItem("SussyLayers", this.getSaveString());
+            localStorage.setItem("SussyLayers_Settings", this.getSettingsSaveString());
             if(game.settings.notifications && game.settings.saveNotifications)
             {
                 functions.createNotification(new Notification(NOTIFICATION_STANDARD, "Game Saved!", "images/save.svg"));
@@ -186,9 +186,9 @@ var functions = {
     {
         let loadObj;
         let isImported = str !== undefined;
-        str = str || localStorage.getItem("OmegaLayers") || null;
+        str = str || localStorage.getItem("SussyLayers") || null;
         if(str === null) return;
-        if(str === "free boost")
+        if(str === "among us")
         {
             functions.setTheme("broken.css");
             return -1;
@@ -208,7 +208,7 @@ var functions = {
         }
         catch(e)
         {
-            console.warn("Error loading save\n", e.stack);
+            console.warn("hello your save broke :(\n", e.stack);
             return false;
         }
 
@@ -291,7 +291,7 @@ var functions = {
             game.metaLayer = new MetaLayer();
         }
 
-        if(localStorage.getItem("OmegaLayers_Settings") !== null)
+        if(localStorage.getItem("SussyLayers_Settings") !== null)
         {
             try
             {
@@ -300,7 +300,7 @@ var functions = {
             }
             catch(e)
             {
-                console.warn("Error loading Settings\n", e.stack);
+                console.warn("oopsie your settings are sus\n", e.stack);
             }
         }
         this.setTheme(game.settings.theme);

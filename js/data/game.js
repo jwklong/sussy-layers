@@ -34,7 +34,7 @@ var game = {
             level => level.gt(0) ? Math.pow(0.6, level.toNumber() - 1) * 30 : Infinity, null, {
                 getEffectDisplay: effectDisplayTemplates.automator()
             })),
-        autoAleph: new Automator("Auto Aleph", "Automatically Max All Aleph Upgrades", () =>
+        autoAleph: new Automator("Auto Tasks", "Automatically Max All Task Upgrades", () =>
         {
             game.alephLayer.maxAll();
         }, new DynamicLayerUpgrade(level => level + 3, () => null, () => "Decrease the Automator interval",
@@ -90,7 +90,8 @@ var game = {
         new Achievement("WHEN THE IM-", "hey hey its the icon from the game called sussy layers", "ඞ", () => game.layers[4] && game.layers[4].resource.gt(1)),
         new Achievement("impostor impostor", "double impostor!??!?", PrestigeLayer.getNameForLayer(9), () => game.layers[9] && game.layers[9].resource.gt(1)),
         new Achievement("sussy mode", "you are the impostor", PrestigeLayer.getNameForLayer(23), () => game.metaLayer.active),
-        new Achievement("something", "1e38 or something i think", "idk", () => game.metaLayer.layer.gte(new Decimal("1e38"))),
+        new Achievement("cool", "your good at this", "👍", () => game.metaLayer.layer.gte("10000")),
+        new Achievement("something", "1e38 or something i think", "idk", () => game.metaLayer.layer.gte("1e38")),
         new Achievement("you win", "or do you?!?!?!!", "<span class='flipped-v'>ඞ</span>", () => game.metaLayer.layer.gte(INFINITY)),
         new Achievement("Starting Out", "Reach 1 α (somehow?)", "αααααααααα", () => game.metaLayer.layer.gte(INFINITY2)),
         new Achievement("Other Times Await", "something's up", "ββββββββββ", () => game.metaLayer.layer.gte(INFINITY3)),

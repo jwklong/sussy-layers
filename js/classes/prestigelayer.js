@@ -83,7 +83,7 @@ class PrestigeLayer
             return "β<sup>" + PrestigeLayer.getNameForLayer(layer.div(INFINITY3).floor().sub(1)) + "</sup>";
         }
         let letters = ["○","☛","🔫","🗡","ඞ"];
-        let orders = "</-=+x>";
+        let orders = ["<","/","-","=","+","x",">"];
         let totalCombinations = (orders.length + 2) * letters.length;
         let arrowOrder = Math.floor(Math.log(nLayer) / Math.log(totalCombinations));
         let order = Math.floor(nLayer / letters.length);
@@ -104,8 +104,7 @@ class PrestigeLayer
 
     static getFullNameForLayer(layer)
     {
-        let names = ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta", "iota", "kappa", "lambda", "my", "ny", "xi", "omicron",
-            "pi", "rho", "sigma", "tau", "ypsilon", "phi", "chi", "psi", "omega"];
+        let names = ["button","point","gun","sword","amogus"];
         let name = names[layer % names.length];
         if(layer % (names.length * 2) >= names.length)
         {

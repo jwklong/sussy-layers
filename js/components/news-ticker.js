@@ -7,6 +7,9 @@ Vue.component("news-ticker", {
                 "when the impostor is sus",
                 "&#3486;",
                 "<a href='https://jwklong.github.io/Incremental-Snake'>play incremental snake</a>",
+                "motd: "+Utils.getMOTD(),
+                "guys i just realised that when u get layer 1.8e308 in meta there is sabotage thing that allows you to do cool stuff and btw thank you for listening to my spoiler now you know it :D",
+                "hamburger"
             ],
             currentMessage: "",
             messageIndex: -1

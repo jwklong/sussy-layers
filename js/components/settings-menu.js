@@ -77,15 +77,15 @@ Vue.component("settings-menu", {
             {
                 if(!ret)
                 {
-                    functions.createNotification(new Notification(NOTIFICATION_ERROR, "Error importing Game", "images/save.svg"));
+                    functions.createNotification(new Notification(NOTIFICATION_ERROR, "your import too sussy to load", "images/save.svg"));
                 }
                 else if(ret === -1)
                 {
-                    functions.createNotification(new Notification(NOTIFICATION_ERROR, "What have you done..."));
+                    functions.createNotification(new Notification(NOTIFICATION_ERROR, "bro why did you do among us..."));
                 }
                 else
                 {
-                    functions.createNotification(new Notification(NOTIFICATION_SUCCESS, "Game Imported", "images/save.svg"));
+                    functions.createNotification(new Notification(NOTIFICATION_SUCCESS, "sussy game imported!11!!", "images/save.svg"));
                 }
             }
             game.settings.tab = "Layers";

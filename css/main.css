@@ -195,6 +195,7 @@ body{
     background-color: var(--background-body);
     color: var(--color-contrast);
     overflow-x: hidden;
+    touch-action: manipulation;
 }
 
 button{
