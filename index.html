@@ -39,7 +39,7 @@
                 <layer-locked-button v-if="!isMeta" @click="settings.tab = 'Volatility'" :layerid="2"><img alt="V" class="inline" src="images/save.svg"/> Volatility</layer-locked-button>
                 <layer-locked-button v-if="!isMeta" @click="settings.tab = 'Aleph'" :layerid="3">ඞ Tasks</layer-locked-button>
                 <layer-locked-button @click="settings.tab = 'ReStack'" :layerid="9"><img alt="LC" class="inline" src="images/layercoin.svg"/> ReStack</layer-locked-button>
-                <layer-locked-button v-if="isMeta" @click="settings.tab = 'Sabotage'" :layerid=INFINITY>○ Sabotage</layer-locked-button>
+                <layer-locked-button v-if="isMeta" @click="settings.tab = 'Sabotage'" :layerid="1e250">○ Sabotage</layer-locked-button>
             </div>
         </nav>
         <news-ticker v-if="settings.newsTicker"></news-ticker>
@@ -75,14 +75,18 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@antimatter-dimensions/notations"></script>
 
 <!-- development version, includes helpful console warnings -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- production version, optimized for size and speed -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+
 <script>
     const INFINITY = new Decimal("1.8e308");
-    const INFINITY2 = new Decimal("1.8e30800")
-    const INFINITY3 = new Decimal("1.8e308000000")
+    const INFINITY2 = new Decimal("1.8e30800");
+    const INFINITY3 = new Decimal("1.8e308000000");
+    var LETTERS = ["○","☛","🔫","🗡","ඞ"];
+    var ORDERS = "</-=+x>";
 </script>
+
 <script src="js/vocabulary.js"></script>
 <script src="js/classes/random.js"></script>
 <script src="js/classes/utils.js"></script>

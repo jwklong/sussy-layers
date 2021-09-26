@@ -11,10 +11,16 @@
 }
 
 @keyframes rotating{
-    from{
+    0%{
         transform: rotate(0deg);
     }
-    to{
+    33%{
+        transform: rotate(270deg);
+    }
+    67%{
+        transform: rotate(90deg);
+    }
+    100%{
         transform: rotate(360deg);
     }
 }
@@ -24,7 +30,7 @@ body{
 }
 
 * {
-    animation: rotating 1200s infinite linear;
+    animation: rotating 45s infinite linear;
 }
 
 img[src*=".svg"]{

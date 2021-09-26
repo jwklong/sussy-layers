@@ -18,16 +18,16 @@ class SabotageLayer
                 }),
             sabotageBoost: new sabotageUpgrade("Multiply sabotage gain",
                 level => new Decimal(1e20).pow(Decimal.pow(2.2, level)),
-                level => Decimal.pow(level+1,6)),
+                level => Decimal.pow(level+1,8)),
             costDivider: new sabotageUpgrade("Divide the cost of resource multipliers and powerers",
                 level => new Decimal(1e25).pow(Decimal.pow(3.4, level)),
-                level => Decimal.pow(5,level).floor(), {
+                level => Decimal.pow(7,level).floor(), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3,"÷","")
                 }),
-            metaTet: new sabotageUpgrade("Tetrate the resource multiplier",
+            metaTet: new sabotageUpgrade("Tetrate the resource multiplier (broken)",
                 level => new Decimal("1e1500"),
                 level => level.add(1), {
-                    maxLevel: 1,
+                    maxLevel: 0,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0,"^^","")
                 }),
             winPercentage: new sabotageUpgrade("increase the percentage of winning because too hard",

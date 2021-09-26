@@ -12,7 +12,7 @@ Vue.component("sabotage-layer", {
         },
         isSoftCapped: function()
         {
-            return this.sabotage.sabotagePoints.gt(1e300);
+            return this.sabotage.sabotagePoints.gt(1e2000);
         }
     },
     methods: {
@@ -29,7 +29,7 @@ Vue.component("sabotage-layer", {
         <p>Your layer boosts the gain of sabotage points, translated to a x{{formatNumber(sabotage.getSabotageBoostFromLayer(), 2, 2)}} Boost on <span class="aleph">sabotage</span> gain</p>
     </div>
     <div v-else>
-        <p>You need to go <resource-name :layerid="new Decimal("1.8e308")"></resource-name> at least once to get <span class="aleph">sabotages</span></p>
+        <p>You need to get <span class='flipped-v'>ඞ</span> at least once to get <span class="aleph">sabotages</span></p>
     </div>
 </div>
 <div class="tabs">

@@ -95,6 +95,12 @@ var functions = {
         document.getElementById("theme").href = "css/themes/" + css;
         game.settings.theme = css;
     },
+    setNames: function(stuff)
+    {
+        game.settings.layerNames = stuff;
+        LETTERS = stuff[0];
+        ORDERS = stuff[1];
+    },
     createNotification: function(notification)
     {
         game.notifications.push(notification);
@@ -295,7 +301,7 @@ var functions = {
         {
             try
             {
-                let settings = JSON.parse(decodeURIComponent(escape(atob(localStorage.getItem("OmegaLayers_Settings")))));
+                let settings = JSON.parse(decodeURIComponent(escape(atob(localStorage.getItem("SussyLayers_Settings")))));
                 game.settings = Object.assign(game.settings, settings);
             }
             catch(e)
@@ -303,7 +309,8 @@ var functions = {
                 console.warn("oopsie your settings are sus\n", e.stack);
             }
         }
-        this.setTheme(game.settings.theme);
+        this.setTheme(game.settings.theme)
+        this.setNames(game.settings.layerNames)
 
         if(game.version !== loadObj.version)
         {
@@ -345,7 +352,7 @@ var functions = {
             confirmations++;
         } while(confirmations < 3)
 
-        localStorage.setItem("OmegaLayers", null);
+        localStorage.setItem("SussyLayers", null);
         game.currentLayer = null;
         game.layers = [];
         functions.generateLayer(0);

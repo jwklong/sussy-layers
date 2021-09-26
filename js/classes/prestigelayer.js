@@ -44,7 +44,6 @@ class PrestigeLayer
             }
         }
     }
-
     static getNameForLayer(layer)
     {
         let nLayer = layer;
@@ -82,8 +81,8 @@ class PrestigeLayer
             }
             return "β<sup>" + PrestigeLayer.getNameForLayer(layer.div(INFINITY3).floor().sub(1)) + "</sup>";
         }
-        let letters = ["○","☛","🔫","🗡","ඞ"];
-        let orders = ["<","/","-","=","+","x",">"];
+        let letters = LETTERS;
+        let orders = ORDERS;
         let totalCombinations = (orders.length + 2) * letters.length;
         let arrowOrder = Math.floor(Math.log(nLayer) / Math.log(totalCombinations));
         let order = Math.floor(nLayer / letters.length);

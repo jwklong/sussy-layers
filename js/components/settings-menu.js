@@ -5,7 +5,8 @@ Vue.component("settings-menu", {
             settings: game.settings,
             exportString: "The exported Save String will appear here. Keep it somewhere safe." +
                 " Click Import to load the save string from the text field.",
-            themes: [["sussy!11!1!", "sussy.css"], ["purply", "purply.css"], ["hacker", "hacker.css"], ["kghfdgjfsh", "bad.css"], ["gone", "gone.css"], ["Dark", "dark.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"]]
+            themes: [["sussy!11!1!", "sussy.css"], ["purply", "purply.css"], ["hacker", "hacker.css"], ["kghfdgjfsh", "bad.css"], ["gone", "gone.css"], ["Dark", "dark.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"]],
+            names: [["sussy layers", [["○","☛","🔫","🗡","ඞ"], "</-=+x>"]], ["omega layers", ["αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ", "ψϝϛͱϻϙͳϸ"]], ["alphabet", ["abcdefghijklmnopqrstuvwxyz", "123456789"]]]
         }
     },
     mounted: function()
@@ -92,6 +93,7 @@ Vue.component("settings-menu", {
         },
         hardResetGame: () => functions.hardResetGame(),
         setTheme: css => functions.setTheme(css),
+        setNames: js => functions.setNames(js),
         volatilityUnlocked: () => functions.maxLayerUnlocked() >= 2
     },
     template: `<div class="settings">
@@ -132,6 +134,8 @@ Vue.component("settings-menu", {
 </div>
 <div class="settings-row">
     <label>Theme <button :class="{selected: settings.theme === t[1]}" v-for="t in themes" @click="setTheme(t[1])">{{t[0]}}</button></label>
+</div><div class="settings-row">
+    <label>Layer Names (pre-<span class='flipped-v'>ඞ</span>) <button :class="{selected: settings.layerNames === t[1]}" v-for="t in names" @click="setNames(t[1])">{{t[0]}}</button></label><label><a href="index.html">Refresh Names</a></label>
 </div>
 <div class="settings-row">
     <button @click="save()">Save Game</button>
