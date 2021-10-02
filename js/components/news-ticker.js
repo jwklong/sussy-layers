@@ -9,7 +9,10 @@ Vue.component("news-ticker", {
                 "<a href='https://jwklong.github.io/Incremental-Snake'>play incremental snake</a>",
                 "motd: "+Utils.getMOTD(),
                 "guys i just realised that when u get layer 1.8e308 in meta there is sabotage thing that allows you to do cool stuff and btw thank you for listening to my spoiler now you know it :D",
-                "hamburger"
+                "hamburger",
+                "what if the how is why where there",
+                "monke",
+                "lgfdjoibglkjfdsaiuyternbvcxihfdsjhkgkjhdsfhgfdkjbersfiuhvfnhoiusahgfdgjfdsjhsdjnbbhdsaayuerhgjfdsjhgdgfkgfyssabvcbklijhgfjhaenjdsfjlkfdskjhfdsbngfkjheebkgfbjhdskjhgfdlkjhgfdersbnmslkjhgflhkjs sorry my cat stepped on my keyboard"
             ],
             currentMessage: "",
             messageIndex: -1
@@ -43,7 +46,7 @@ Vue.component("news-ticker", {
             let anim = this.$refs.message.style.animation.slice();
             this.getMessage();
             this.$refs.message.style.animation = "none";
-            void this.$refs.message.offsetWidth; //black magic
+            void this.$refs.message.offsetWidth; //very black magic
             this.$refs.message.style.animation = anim;
             Vue.nextTick(() =>
             {

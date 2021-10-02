@@ -26,12 +26,12 @@ class SabotageLayer
                 }),
             metaTet: new sabotageUpgrade("Tetrate the resource multiplier",
                 level => new Decimal("1e1000"),
-                level => level.add(1), {
+                level => new Decimal("1").add(level.mul("0.2")), {
                     maxLevel: 1,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0,"^^","")
                 }),
             winPercentage: new sabotageUpgrade("increase the percentage of winning because too hard",
-                level => new Decimal("eeee308").add(level),
+                level => new Decimal("eeee308"),
                 level => new Decimal("0"), {
                     getEffectDisplay: effectDisplayTemplates.percentStandard(3, "", " %", 0)
                 })
@@ -74,7 +74,7 @@ class SabotageLayer
 
     loadFromSave(obj)
     {
-        this.aleph = obj.aleph;
+        this.sabotagePoints = obj.sabotagePoints;
         for(let k of Object.getOwnPropertyNames(obj.upgrades))
         {
             if(this.upgrades[k])

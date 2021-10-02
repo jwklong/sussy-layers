@@ -20,7 +20,7 @@ var functions = {
         if(n.lt(lim))
         {
             let num = n.toNumber();
-            if(num === -0) num = 0; //weird
+            if(Object.is(x, -0)) num = 0; //weird
             return num.toLocaleString("en-us", {minimumFractionDigits: prec1000, maximumFractionDigits: prec1000});
         }
         if(n.layer === 0)
