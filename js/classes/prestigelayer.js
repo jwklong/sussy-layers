@@ -145,7 +145,7 @@ class PrestigeLayer
         for(let i = 0; i < 10; i++)
         {
             let baseProd = i === 0 ? new Decimal(1) : new Decimal(0.2);
-            this.generators.push(new Generator(this, i, i > 0 ? this.generators[i - 1] : null, this.name + "<sub>" + (i + 1) + "</sub>",
+            this.generators.push(new Generator(this, i, i > 0 ? this.generators[i - 1] : null, i,
                 Decimal.pow(10, i + 1 + Math.max(0, i - 3) + Math.max(0, i - 6)), Decimal.pow(10, i + 3 + Math.max(0, i - 2)), baseProd));
         }
     }
@@ -265,7 +265,7 @@ class PrestigeLayer
             let bpMult = 0.2 + 0.6 * rand.nextDouble();
             let baseProd = new Decimal(0.02);
             this.powerGenerators.push(new PowerGenerator(this, i, i > 0 ? this.powerGenerators[i - 1] : null,
-                this.name + "<sub>P<sub>" + (i + 1) + "</sub></sub>",
+                "P<sub>" + i + "</sub>",
                 Decimal.pow(10, Decimal.pow(2, i)).mul(bpMult).floor(), Decimal.pow(10, Decimal.pow(2, i).add(1)), baseProd));
         }
     }

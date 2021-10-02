@@ -26,8 +26,8 @@ Vue.component("meta-layer", {
 <p class="resource">You have killed {{formatNumber(metaLayer.resource, 2, 0, 1e9)}} <resource-name :layerid="metaLayer.layer.floor()"></resource-name> times</p>
 <p class="resource alpha" v-if="metaLayer.layer.gt(0)">You have approx. {{formatNumber(metaLayer.getApproxAlpha(), 2, 0, 1e9)}} <resource-name :layerid="0"></resource-name></p>
 <p class="layer">You are on Layer {{formatNumber(metaLayer.layer.add(1), 2, 0, 1e12)}}</p>
-<p>Your Resource multiplies by x{{formatNumber(metaLayer.getMultiPS(), 2, 2)}} each second
-<span v-if="showLayersPS"><br/>and thus advancing {{formatNumber(metaLayer.getLayersPS(), 2, 2)}} Layers per second</span></p>
+<p>Your kills are multiplied by x{{formatNumber(metaLayer.getMultiPS(), 2, 2)}} each second
+<span v-if="showLayersPS"><br/>and thus killing {{formatNumber(metaLayer.getLayersPS(), 2, 2)}} crewmates per second</span></p>
 <button v-if="canMaxAll" @click="metaLayer.maxAll()" class="max-all">Max All (M)</button>
 <h4>Resource Multipliers</h4>
 <upgrade-container :upgrades="metaLayer.multiplierUpgrades"></upgrade-container>

@@ -24,10 +24,10 @@ class SabotageLayer
                 level => Decimal.pow(7,level).floor(), {
                     getEffectDisplay: effectDisplayTemplates.numberStandard(3,"÷","")
                 }),
-            metaTet: new sabotageUpgrade("Tetrate the resource multiplier (broken)",
-                level => new Decimal("1e1500"),
+            metaTet: new sabotageUpgrade("Tetrate the resource multiplier",
+                level => new Decimal("1e1000"),
                 level => level.add(1), {
-                    maxLevel: 0,
+                    maxLevel: 1,
                     getEffectDisplay: effectDisplayTemplates.numberStandard(0,"^^","")
                 }),
             winPercentage: new sabotageUpgrade("increase the percentage of winning because too hard",

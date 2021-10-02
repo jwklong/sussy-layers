@@ -6,7 +6,7 @@ Vue.component("settings-menu", {
             exportString: "The exported Save String will appear here. Keep it somewhere safe." +
                 " Click Import to load the save string from the text field.",
             themes: [["sussy!11!1!", "sussy.css"], ["purply", "purply.css"], ["hacker", "hacker.css"], ["kghfdgjfsh", "bad.css"], ["gone", "gone.css"], ["Dark", "dark.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"]],
-            names: [["sussy layers", [["○","☛","🔫","🗡","ඞ"], "</-=+x>"]], ["omega layers", ["αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ", "ψϝϛͱϻϙͳϸ"]], ["alphabet", ["abcdefghijklmnopqrstuvwxyz", "123456789"]]]
+            names: [["sussy layers", [["○","☛","🔫","🗡","ඞ"], "</-=+x>"]], ["omega layers", ["αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ", "ψϝϛͱϻϙͳϸ"]], ["alphabet", ["abcdefghijklmnopqrstuvwxyz", "123456789"]], ["symbols", ['!"£$%^&*;:@', "<,[{}].>"]]]
         }
     },
     mounted: function()

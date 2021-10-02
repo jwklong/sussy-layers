@@ -6,14 +6,14 @@ Vue.component("layer-colored-text", {
             let lid = new Decimal(this.getLayerId());
             if(this.getLayerId() instanceof Decimal && this.getLayerId().gte(INFINITY))
             {
-                return "#cc00ff";
+                return "#ffffff";
             }
             let h = 33 * Math.min(lid.toNumber(), 10000);
             if(lid.gt(10000))
             {
                 h += Decimal.log10(lid.div(10000)).toNumber() * 600;
             }
-            return "hsl(" + h + ", " + 100 + "%, 50%)";
+            return "hsl(" + h + ", 100%, 50%)";
         },
         textGlow: function()
         {

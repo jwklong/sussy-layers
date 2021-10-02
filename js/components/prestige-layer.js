@@ -117,7 +117,7 @@ Vue.component("prestige-layer", {
 </div>
 <div v-if="layer.hasPower() && tab === TAB_POWER">
     <p class="power-text">You have <span class="big-number">{{formatNumber(layer.power, 2, 2)}}</span> <resource-name :layerid="layer.layer"></resource-name>-Power, 
-    translated to a <span class="big-number">x{{formatNumber(layer.getPowerBoost(), 2, 2)}}</span> Boost on <layer-colored-text :layerid="layer.powerTargetLayer.layer" v-html="powerName"></layer-colored-text>-Generators</p>
+    translated to a <span class="big-number">x{{formatNumber(layer.getPowerBoost(), 2, 2)}}</span> Boost on Layer 1 Generators</p>
     <generator-table :generators="layer.powerGenerators"></generator-table>
 </div>
 <div v-if="layer.hasChallenges() && tab === TAB_CHALLENGES">

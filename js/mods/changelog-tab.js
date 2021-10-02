@@ -1,6 +1,11 @@
 Vue.component("changelog-tab", {
     template: `<div class="changelog-tab">
     <guide-item>
+    <template v-slot:title>α - v1.0.3</template>
+    <template v-slot:text>some tweaks and new layer name
+    </template>
+    </guide-item>
+    <guide-item>
     <template v-slot:title>α - v1.0.2</template>
     <template v-slot:text>sabotage layer buffed, and you can change layer names for some reason lol.
     </template>

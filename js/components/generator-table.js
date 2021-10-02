@@ -5,7 +5,7 @@ Vue.component("generator-table",{
         <th>Generator</th>
         <th>Amount</th>
         <th>Buy</th>
-        <th>Buy Until 10</th>
+        <th>Buy 10</th>
     </thead>
     <generator v-for="(g, i) in generators" :key="i" :generator="g"></generator>
 </table>`
