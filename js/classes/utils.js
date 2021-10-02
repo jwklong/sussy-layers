@@ -67,14 +67,7 @@ class Utils
         let word = "";
         for(let i = 0; i < length; i++)
         {
-            if(i % 2 === 0)
-            {
-                word += vowels[rand.nextInt(vowels.length)];
-            }
-            else
-            {
-                word += consonants[rand.nextInt(consonants.length)];
-            }
+            word += i % 2 === 0 ? vowels[rand.nextInt(vowels.length)] : consonants[rand.nextInt(consonants.length)];
         }
         return word;
     }
