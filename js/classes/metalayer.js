@@ -91,8 +91,8 @@ class MetaLayer
             const carryOver = PrestigeLayer.getPrestigeCarryOverForLayer(this.layer);
             return Decimal.pow(10, Decimal.pow(carryOver, Decimal.max(0, this.layer)));
         }
-        const log = new Decimal(1);
-        for(const i = 0; i < Math.min(10, this.layer); i++)
+        let log = new Decimal(1);
+        for(let i = 0; i < Math.min(10, this.layer); i++)
         {
             log = log.mul(PrestigeLayer.getPrestigeCarryOverForLayer(i));
         }
