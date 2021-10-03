@@ -1,4 +1,4 @@
-let functions = {
+const functions = {
     formatNumber: function(n, prec, prec1000, lim = new Decimal(1000))
     {
         if(typeof n === "number")
@@ -107,7 +107,7 @@ let functions = {
         {
             if(key === "currentChallenge")
             {
-                return value !== null && value !== undefined && game.layers[value.layer.layer] ? {layer: value.layer.layer, index: game.layers[value.layer.layer].challenges.findIndex(c => c === value)} : null;
+                return value !== null && typeof(value) !== "undefined" && game.layers[value.layer.layer] ? {layer: value.layer.layer, index: game.layers[value.layer.layer].challenges.findIndex(c => c === value)} : null;
             }
             if(key === "settings")
             {
@@ -214,9 +214,9 @@ let functions = {
             return false;
         }
 
-        game.timeSpent = loadObj.timeSpent !== undefined ? loadObj.timeSpent : 0;
-        game.highestLayer = loadObj.highestLayer !== undefined ? loadObj.highestLayer : 0;
-        game.highestUpdatedLayer = loadObj.highestUpdatedLayer !== undefined ? loadObj.highestUpdatedLayer : 0;
+        game.timeSpent = typeof(loadObj.timeSpent) !== "undefined" ? loadObj.timeSpent : 0;
+        game.highestLayer = typeof(loadObj.highestLayer) !== "undefined" ? loadObj.highestLayer : 0;
+        game.highestUpdatedLayer = typeof(loadObj.highestUpdatedLayer) !== "undefined" ? loadObj.highestUpdatedLayer : 0;
         game.layers = [];
         for(let i = 0; i < loadObj.layers.length; i++)
         {

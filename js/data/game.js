@@ -1,4 +1,4 @@
-var game = {
+const game = {
     version: "1.0",
     timeSaved: Date.now(),
     layers: [],

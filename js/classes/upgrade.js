@@ -388,7 +388,7 @@ class MetaDynamicLayerUpgrade extends AbstractUpgrade
     }
 }
 
-var effectDisplayTemplates = {
+const effectDisplayTemplates = {
     numberStandard: function(digits, prefix = "x", suffix = "")
     {
         return function()

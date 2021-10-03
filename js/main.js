@@ -1,13 +1,13 @@
-var dtOld = Date.now();
-var dtNew = Date.now();
-var minimizedLayer = 0;
+let dtOld = Date.now();
+let dtNew = Date.now();
+let minimizedLayer = 0;
 let saveTimer = 0;
 
 let keyMap = [];
 let tabMap = {};
 const textBoxFocused = false;
 
-var app = new Vue({
+const app = new Vue({
     el: "#app",
     data: game,
     methods: functions,
