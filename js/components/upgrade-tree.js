@@ -31,7 +31,7 @@ Vue.component("upgrade-tree", {
                 let r = tree.childNodes[row];
                 for(let col = 0; col < r.childNodes.length; col++)
                 {
-                    let u = this.upgrades[+row][+col];
+                    let u = this.upgrades[Number(row)][Number(col)];
                     if(u.requires)
                     {
                         for(let req of u.requires)
