@@ -13,8 +13,8 @@ Vue.component("layer-navigation", {
             multipleLayers: () => game.layers.length > 1,
             buttonFontSize: function(layer)
             {
-                let id = layer.layer;
-                let fntSize = 1.25 / (1 + 0.2 * Math.min(2, Math.floor(id / 48))); //24 greek letters * 2
+                const id = layer.layer;
+                const fntSize = 1.25 / (1 + 0.2 * Math.min(2, Math.floor(id / 10))); //no longer 24 greek letters * 2
                 return fntSize + "rem";
             },
             isDisplayed: function(layerId)

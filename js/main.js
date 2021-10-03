@@ -5,7 +5,7 @@ let saveTimer = 0;
 
 let keyMap = [];
 let tabMap = {};
-let textBoxFocused = false;
+const textBoxFocused = false;
 
 var app = new Vue({
     el: "#app",
@@ -17,7 +17,7 @@ var app = new Vue({
 
 function onCreate()
 {
-    let loadingText =  document.querySelector("#loading > p");
+    const loadingText =  document.querySelector("#loading > p");
 
     loadingText.innerHTML = "Initializing...";
     functions.generateLayer(0);
@@ -45,7 +45,7 @@ function tickGame(seconds)
             titleInfo = Utils.getMOTD();
             break;
         case 2:
-            titleInfo = game.metaLayer.active ? "layer " + functions.formatNumber(game.metaLayer.layer.add(1), 3, 0) : functions.formatNumber(game.currentLayer.resource, 2, 0, 1e9) + " " + game.currentLayer.name;
+            titleInfo = game.metaLayer.active ? "layer " + functions.formatNumber(game.metaLayer.layer.add(1), 3, 0) : "layer " + new Decimal(1).add(game.highestLayer);
             break;
     }
     document.title = "ඞ-lλγers" + (game.settings.titleStyle !== 0 ? ":" : "") + " " + titleInfo;
@@ -61,7 +61,7 @@ function tickGame(seconds)
         functions.generateLayer(game.layers.length);
     }
 
-    if(game.currentChallenge && game.currentChallenge.isCompleted())
+    if(game.currentChallenge && game.currentChallenge.isCompconsted())
     {
         game.currentChallenge.succeed();
     }
@@ -91,17 +91,17 @@ function tickGame(seconds)
     game.highestUpdatedLayer = Math.max(game.highestUpdatedLayer, game.layers.length - 1);
     game.highestUpdatedLayer = Math.max(game.highestUpdatedLayer, game.metaLayer.layer);
 
-    let minActiveLayer = game.settings.showMinLayers;
-    let maxActiveLayer = game.layers.length - game.settings.showMaxLayers;
+    const minActiveLayer = game.settings.showMinLayers;
+    const maxActiveLayer = game.layers.length - game.settings.showMaxLayers;
 
     //find out how many layers are minimized and active
-    let numActiveLayers = game.settings.showMinLayers + game.settings.showMaxLayers + (game.currentLayer.layer >= game.settings.showMinLayers && game.currentLayer.layer < game.layers.length - game.settings.showMaxLayers ? 1 : 0);
-    let numMinimizedLayers = game.layers.length - numActiveLayers;
+    const numActiveLayers = game.settings.showMinLayers + game.settings.showMaxLayers + (game.currentLayer.layer >= game.settings.showMinLayers && game.currentLayer.layer < game.layers.length - game.settings.showMaxLayers ? 1 : 0);
+    const numMinimizedLayers = game.layers.length - numActiveLayers;
 
     if(numActiveLayers < game.layers.length && numActiveLayers > 0)
     {
         //if the layer is active, tick every frame
-        for(let i = 0; i < game.layers.length; i++)
+        for(const i = 0; i < game.layers.length; i++)
         {
             if(i < minActiveLayer || i >= maxActiveLayer || game.layers[i] === game.currentLayer)
             {
@@ -110,8 +110,8 @@ function tickGame(seconds)
         }
         //increase and wrap the minimized layer
         //to increase performance, inactive layers only tick one at a time
-        let layersAtOnce = game.settings.layerTickSpeed;
-        for(let i = 0; i < layersAtOnce; i++)
+        const layersAtOnce = game.settings.layerTickSpeed;
+        for(const i = 0; i < layersAtOnce; i++)
         {
             minimizedLayer = (minimizedLayer + 1) % game.layers.length;
             while(minimizedLayer < minActiveLayer || minimizedLayer >= maxActiveLayer || game.layers[minimizedLayer] === game.currentLayer)
@@ -124,7 +124,7 @@ function tickGame(seconds)
     }
     else
     {
-        for(let l of game.layers)
+        for(const l of game.layers)
         {
             l.tick(seconds);
         }
@@ -132,17 +132,17 @@ function tickGame(seconds)
     game.alephLayer.tick(seconds);
     game.sabotageLayer.tick(seconds);
 
-    for(let k of Object.keys(game.automators))
+    for(const k of Object.keys(game.automators))
     {
         game.automators[k].tick(seconds);
     }
 
-    for(let ach of game.achievements)
+    for(const ach of game.achievements)
     {
         ach.tick(seconds);
     }
 
-    for(let n of game.notifications)
+    for(const n of game.notifications)
     {
         n.tick(seconds);
         if(n.lifeTime > 5)
@@ -157,14 +157,14 @@ function tickGame(seconds)
 
 function simulateGameTime(seconds)
 {
-    let times = 100;
-    let timePerTick = seconds / 100;
+    const times = 100;
+    const timePerTick = seconds / 100;
     if(timePerTick < 0.01)
     {
         times = Math.floor(times / (0.01 / timePerTick));
         timePerTick = 0.01;
     }
-    for(let i = 0; i < times; i++)
+    for(const i = 0; i < times; i++)
     {
         tickGame(timePerTick);
     }
@@ -173,7 +173,7 @@ function simulateGameTime(seconds)
 function update()
 {
     dtNew = Date.now();
-    let dt = Math.max(0, (dtNew - dtOld) / 1000);
+    const dt = Math.max(0, (dtNew - dtOld) / 1000);
     dtOld = Date.now();
 
     tickGame(dt);
@@ -192,7 +192,7 @@ onkeydown = e =>
     {
         keyMap.push(e.key);
     }
-    let lc = e.key.toLowerCase();
+    const lc = e.key.toLowerCase();
 
     if(textBoxFocused)
     {
@@ -215,7 +215,7 @@ onkeydown = e =>
                 game.currentLayer.prestige();
             }
         }
-        for(let tab of ["Layers", "Guide", "Settings"])
+        for(const tab of ["Layers", "Guide", "Settings"])
         {
             if(lc === tab[0].toLowerCase() && !e.ctrlKey)
             {

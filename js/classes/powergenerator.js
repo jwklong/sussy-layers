@@ -15,9 +15,9 @@ class PowerGenerator extends Generator
     getProductionMulti()
     {
         let multi = new Decimal(1);
-        for(let l of game.layers)
+        for(const l of game.layers)
         {
-            for(let upg of l.getAllUpgrades().filter(u => u.type === UPGRADE_POWERGENERATOR_TIMELAYER && u.layerBoost === this.layer || (u.type === UPGRADE_POWERGENERATOR && u.layerBoost === this.layer && u.cfg.generators.includes(this.id))))
+            for(const upg of l.getAllUpgrades().filter(u => u.type === UPGRADE_POWERGENERATOR_TIMELAYER && u.layerBoost === this.layer || (u.type === UPGRADE_POWERGENERATOR && u.layerBoost === this.layer && u.cfg.generators.includes(this.id))))
             {
                 multi = multi.mul(upg.apply());
             }
@@ -27,14 +27,14 @@ class PowerGenerator extends Generator
             }
             if(l.hasChallenges())
             {
-                for(let ch of l.challenges.filter(c => c.level > 0 && c.rewardType === CHALLENGE_REWARD_POWERGENERATORS))
+                for(const ch of l.challenges.filter(c => c.level > 0 && c.rewardType === CHALLENGE_REWARD_POWERGENERATORS))
                 {
                     multi = multi.mul(ch.applyReward());
                 }
             }
         }
         multi = multi.mul(game.alephLayer.upgrades.powerGenerators.apply());
-        let power = game.restackLayer.permUpgrades.powerGenerators.apply();
+        const power = game.restackLayer.permUpgrades.powerGenerators.apply();
         return Decimal.pow(2, Decimal.floor(this.bought.div(10))).mul(multi).pow(power);
     }
 }

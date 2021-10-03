@@ -55,7 +55,7 @@ class AbstractUpgrade
     isUnlocked()
     {
         if(this.requires.length === 0) return true;
-        for(let req of this.requires)
+        for(const req of this.requires)
         {
             if(req.level.gt(0))
             {
@@ -67,7 +67,7 @@ class AbstractUpgrade
 
     isLocked()
     {
-        for(let b of this.blacklist)
+        for(const b of this.blacklist)
         {
             if(b.level.gt(0))
             {
@@ -108,9 +108,9 @@ class LayerUpgrade extends AbstractUpgrade
                 return "Boost " + this.layerBoost.name + " Production";
             case UPGRADE_GENERATOR:
             case UPGRADE_POWERGENERATOR:
-                let genNames = [];
-                let genName = this.type === UPGRADE_GENERATOR ? "Generators" : "Power Generators";
-                for(let id of this.cfg.generators)
+                const genNames = [];
+                const genName = this.type === UPGRADE_GENERATOR ? "Generators" : "Power Generators";
+                for(const id of this.cfg.generators)
                 {
                     genNames.push(this.layerBoost[this.type === UPGRADE_GENERATOR ? "generators" : "powerGenerators"][id].name);
                 }
@@ -162,7 +162,7 @@ class LayerUpgrade extends AbstractUpgrade
     buyMax()
     {
         if(!this.isBuyable()) return;
-        let oldLvl = new Decimal(this.level);
+        const oldLvl = new Decimal(this.level);
         this.level = new Decimal(Utils.determineMaxLevel(this.layerCost.resource, this));
         if(this.level.sub(oldLvl).gt(0) && this.level.lt(1e9))
         {
@@ -241,7 +241,7 @@ class DynamicLayerUpgrade extends LayerUpgrade
     buyMax()
     {
         if(!this.currentCostLayer() || !this.isBuyable()) return;
-        let oldLvl = new Decimal(this.level);
+        const oldLvl = new Decimal(this.level);
         this.level = new Decimal(Utils.determineMaxLevel(this.currentCostLayer().resource, this));
         if(this.level.sub(oldLvl).gt(0) && this.level.lt(1e9))
         {
@@ -305,7 +305,7 @@ class ResourceUpgrade extends AbstractUpgrade
     buyMax()
     {
         if(!this.isBuyable()) return;
-        let oldLvl = new Decimal(this.level);
+        const oldLvl = new Decimal(this.level);
         this.level = new Decimal(Utils.determineMaxLevel(this.getResource(), this));
         if(this.level.sub(oldLvl).gt(0) && this.level.lt(1e9))
         {
@@ -364,7 +364,7 @@ class MetaDynamicLayerUpgrade extends AbstractUpgrade
     buy()
     {
         if(!this.isBuyable()) return;
-        let canBuy = this.canBuy();
+        const canBuy = this.canBuy();
         if(canBuy)
         {
             game.metaLayer.layer = game.restackLayer.upgradeTreeNames.substractLayers.apply() ? game.metaLayer.layer.sub(this.currentLayer()) : new Decimal(0);
@@ -375,7 +375,7 @@ class MetaDynamicLayerUpgrade extends AbstractUpgrade
 
     buyMax()
     {
-        let oldLvl = this.level;
+        const oldLvl = this.level;
         this.level = new Decimal(Utils.determineMaxLevel(game.metaLayer.layer, this));
         if(this.level.sub(oldLvl).gt(0) && this.level.lt(1e9))
         {
@@ -405,8 +405,8 @@ var effectDisplayTemplates = {
     {
         return function()
         {
-            let thisVal = this.apply().mul(100);
-            let nextVal = this.getEffect(this.level.add(1)).mul(100);
+            const thisVal = this.apply().mul(100);
+            const nextVal = this.getEffect(this.level.add(1)).mul(100);
             if(this.level.eq(this.maxLevel))
             {
                 return prefix + functions.formatNumber(thisVal, digits, digits1000) + suffix;
@@ -419,8 +419,8 @@ var effectDisplayTemplates = {
     {
         return function()
         {
-            let thisVal = this.level.eq(0) ? "Inactive" : this.apply().toFixed(2) + " s";
-            let nextVal = this.getEffect(this.level.add(1)).toFixed(2) + " s";
+            const thisVal = this.level.eq(0) ? "Inactive" : this.apply().toFixed(2) + " s";
+            const nextVal = this.getEffect(this.level.add(1)).toFixed(2) + " s";
             if(this.level.eq(this.maxLevel))
             {
                 return thisVal;

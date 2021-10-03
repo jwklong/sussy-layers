@@ -27,14 +27,14 @@ Vue.component("news-ticker", {
     methods: {
         getMessage: function()
         {
-            let arr = Array.from(this.messages);
+            const arr = Array.from(this.messages);
             if(this.messageIndex !== -1)
             {
                 arr.splice(this.messageIndex, 1);
             }
-            let index = Math.floor(Math.random() * arr.length);
+            const index = Math.floor(Math.random() * arr.length);
             this.messageIndex = index;
-            let element = arr[index];
+            const element = arr[index];
             this.currentMessage = typeof element === "string" ? element : element();
         }
     },
@@ -43,7 +43,7 @@ Vue.component("news-ticker", {
         this.getMessage();
         this.$refs.message.onanimationiteration = e =>
         {
-            let anim = this.$refs.message.style.animation.slice();
+            const anim = this.$refs.message.style.animation.slice();
             this.getMessage();
             this.$refs.message.style.animation = "none";
             void this.$refs.message.offsetWidth; //very black magic

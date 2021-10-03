@@ -153,7 +153,7 @@ class ReStackLayer
 
     getRestackGain()
     {
-        let l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
+        const l = game.metaLayer.active ? game.metaLayer.layer : new Decimal(game.layers.length - 1);
         return l >= 9 ? Decimal.pow(10, l.sub(9).floor()) : new Decimal(0);
     }
 
@@ -169,7 +169,7 @@ class ReStackLayer
             return;
         }
         this.restack(false);
-        for(let k of Object.keys(this.permUpgrades))
+        for(const k of Object.keys(this.permUpgrades))
         {
             if(this.permUpgrades[k].level.gt(0))
             {
@@ -186,9 +186,9 @@ class ReStackLayer
             return;
         }
         this.restack(false);
-        for(let row of this.upgradeTree)
+        for(const row of this.upgradeTree)
         {
-            for(let upg of row)
+            for(const upg of row)
             {
                 upg.level = new Decimal(0);
             }
@@ -218,11 +218,11 @@ class ReStackLayer
         }
         game.highestUpdatedLayer = new Decimal(0);
         game.alephLayer = new AlephLayer();
-        for(let k of Object.keys(game.automators))
+        for(const k of Object.keys(game.automators))
         {
             game.automators[k].upgrade.level = new Decimal(0);
         }
-        for(let k of Object.keys(game.volatility))
+        for(const k of Object.keys(game.volatility))
         {
             game.volatility[k].level = new Decimal(0);
         }
@@ -249,7 +249,7 @@ class ReStackLayer
     {
         this.layerCoins = obj.layerCoins;
         this.timeSpent = obj.timeSpent;
-        for(let k of Object.keys(obj.permUpgrades))
+        for(const k of Object.keys(obj.permUpgrades))
         {
             this.permUpgrades[k].level = obj.permUpgrades[k].level;
         }

@@ -29,8 +29,8 @@ Vue.component("settings-menu", {
         {
             this.exportGame();
 
-            let date = new Date();
-            let dateString = [date.getFullYear(), date.getMonth() + 1, date.getDate()].map(d => d.toString().padStart(2, "0")).join("-") + "-" +
+            const date = new Date();
+            const dateString = [date.getFullYear(), date.getMonth() + 1, date.getDate()].map(d => d.toString().padStart(2, "0")).join("-") + "-" +
                 [date.getHours(), date.getMinutes(), date.getSeconds()].map(d => d.toString().padStart(2, "0")).join("");
 
             let a = document.createElement("a");
@@ -73,7 +73,7 @@ Vue.component("settings-menu", {
         },
         importGame: function()
         {
-            let ret = functions.loadGame(this.exportString);
+            const ret = functions.loadGame(this.exportString);
             if(game.settings.notifications)
             {
                 if(!ret)

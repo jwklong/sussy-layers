@@ -25,26 +25,26 @@ Vue.component("upgrade-tree", {
         buildTreeLines: function()
         {
             this.arrows = [];
-            let tree = this.$refs.tree;
+            const tree = this.$refs.tree;
             for(let row = 0; row < tree.childNodes.length; row++)
             {
-                let r = tree.childNodes[row];
+                const r = tree.childNodes[row];
                 for(let col = 0; col < r.childNodes.length; col++)
                 {
-                    let u = this.upgrades[Number(row)][Number(col)];
+                    const u = this.upgrades[Number(row)][Number(col)];
                     if(u.requires)
                     {
-                        for(let req of u.requires)
+                        for(const req of u.requires)
                         {
                             for(let i = 0; i < this.upgrades.length; i++)
                             {
-                                let index = this.upgrades[i].findIndex(upg => upg === req);
+                                const index = this.upgrades[i].findIndex(upg => upg === req);
                                 if(index !== -1)
                                 {
-                                    let fromNode = tree.childNodes[i].childNodes[index];
-                                    let toNode = tree.childNodes[row].childNodes[col];
-                                    let rect = {x: fromNode.offsetLeft, y: fromNode.offsetTop, width: fromNode.offsetWidth, height: fromNode.offsetHeight};
-                                    let thisRect = {x: toNode.offsetLeft, y: toNode.offsetTop, width: toNode.offsetWidth, height: toNode.offsetHeight};
+                                    const fromNode = tree.childNodes[i].childNodes[index];
+                                    const toNode = tree.childNodes[row].childNodes[col];
+                                    const rect = {x: fromNode.offsetLeft, y: fromNode.offsetTop, width: fromNode.offsetWidth, height: fromNode.offsetHeight};
+                                    const thisRect = {x: toNode.offsetLeft, y: toNode.offsetTop, width: toNode.offsetWidth, height: toNode.offsetHeight};
                                     this.arrows.push([rect.x + rect.width / 2, rect.y + rect.height / 2,
                                         thisRect.x + thisRect.width / 2, thisRect.y + thisRect.height / 2]);
                                     break;

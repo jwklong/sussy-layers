@@ -20,13 +20,13 @@ class Utils
                 return buyable[buyable instanceof AbstractUpgrade ? "level" : "bought"];
             }
         }
-        let r = resource.div(1e15);
+        const r = resource.div(1e15);
         let lvl = 512;
         let interval = lvl / 2;
         while(interval > 1e-16)
         {
-            let price = !(buyable instanceof MetaDynamicLayerUpgrade) ? buyable.getPrice(Decimal.pow(10, lvl)) : buyable.getLayer(Decimal.pow(10, lvl));
-            let canAfford = r.gte(price);
+            const price = !(buyable instanceof MetaDynamicLayerUpgrade) ? buyable.getPrice(Decimal.pow(10, lvl)) : buyable.getLayer(Decimal.pow(10, lvl));
+            const canAfford = r.gte(price);
             lvl += canAfford ? interval : -interval;
             interval /= 2;
         }
@@ -55,17 +55,16 @@ class Utils
 
     static createValueDilation(value, strength, start = INFINITY)
     {
-        let dilation = Decimal.max(0, value.div(start).log10().mul(strength)).add(1);
-        return value.pow(dilation);
+        return value.pow(Decimal.max(0, value.div(start).log10().mul(strength)).add(1));
     }
 
     static createRandomWord(length, seed = Date.now())
     {
-        let rand = new Random(seed);
-        let vowels = "aeiou";
-        let consonants = "bcdfghjklmnpqrstvwxyz";
-        let word = "";
-        for(let i = 0; i < length; i++)
+        const rand = new Random(seed);
+        const vowels = "aeiou";
+        const consonants = "bcdfghjklmnpqrstvwxyz";
+        const word = "";
+        for(const i = 0; i < length; i++)
         {
             word += i % 2 === 0 ? vowels[rand.nextInt(vowels.length)] : consonants[rand.nextInt(consonants.length)];
         }
@@ -74,7 +73,7 @@ class Utils
 
     static getMOTD()
     {
-        let rand = new Random(new Date().getDate());
+        const rand = new Random(new Date().getDate());
         return ADJECTIVES[rand.nextInt(ADJECTIVES.length)] + " " + NOUNS[rand.nextInt(NOUNS.length)];
     }
 

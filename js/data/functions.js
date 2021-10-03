@@ -7,7 +7,7 @@ var functions = {
         }
         if(n.mag === Infinity)
         {
-            return "Infinite";
+            return "very much too big";
         }
         if(n.lt(0))
         {
@@ -29,7 +29,7 @@ var functions = {
         }
         if(n.layer === 1)
         {
-            let diff = Math.ceil(n.mag) - n.mag;
+            const diff = Math.ceil(n.mag) - n.mag;
             let mag = n.mag;
             if(diff < 1e-10)
             {
@@ -37,14 +37,11 @@ var functions = {
             }
             return Decimal.pow(10, mag % 1).toFixed(prec) + "e" + Math.floor(mag).toLocaleString("en-us", {minimumFractionDigits:0 , maximumFractionDigits:0});
         }
-        else
-        {
-            return "e".repeat(n.layer) + n.mag.toLocaleString("en-us", {minimumFractionDigits: prec , maximumFractionDigits: prec});
-        }
+        return "e".repeat(n.layer) + n.mag.toLocaleString("en-us", {minimumFractionDigits: prec , maximumFractionDigits: prec});
     },
     formatTime: function(s)
     {
-        let times = [Math.floor(s / 60) % 60, Math.floor(s) % 60];
+        const times = [Math.floor(s / 60) % 60, Math.floor(s) % 60];
         if(s >= 3600)
         {
             times.unshift(Math.floor(s / 3600) % 24);
@@ -57,12 +54,12 @@ var functions = {
     },
     generateLayer: function(id)
     {
-        let rand = new Random(id);
+        const rand = new Random(id);
         let possibleFeatures = FeatureUnlockManager.getFeatures(id);
         let features = [];
         for(let i = 0; i < 3; i++)
         {
-            let f = possibleFeatures[rand.nextInt(possibleFeatures.length)];
+            const f = possibleFeatures[rand.nextInt(possibleFeatures.length)];
             possibleFeatures = possibleFeatures.filter(feature => feature !== f);
             features.push(f);
         }
@@ -98,8 +95,7 @@ var functions = {
     setNames: function(stuff)
     {
         game.settings.layerNames = stuff;
-        LETTERS = stuff[0];
-        ORDERS = stuff[1];
+        [LETTERS, ORDERS] = stuff;
     },
     createNotification: function(notification)
     {
@@ -107,7 +103,7 @@ var functions = {
     },
     getSaveString()
     {
-        let replacer = function(key, value)
+        const replacer = function(key, value)
         {
             if(key === "currentChallenge")
             {
@@ -125,7 +121,7 @@ var functions = {
             }
             if(value instanceof Achievement)
             {
-                return {title: value.title, isCompleted: value.isCompleted};
+                return {title: value.title, isCompconsted: value.isCompconsted};
             }
             if(value instanceof AlephLayer)
             {
@@ -191,7 +187,7 @@ var functions = {
     loadGame(str)
     {
         let loadObj;
-        let isImported = str !== undefined;
+        const isImported = str !== undefined;
         str = str || localStorage.getItem("SussyLayers") || null;
         if(str === null) return;
         if(str === "among us")
@@ -201,7 +197,7 @@ var functions = {
         }
         try
         {
-            let reviver = function(key, value)
+            const reviver = function(key, value)
             {
                 if(key === "theme") return value;
                 if(typeof value === "string" && value.startsWith("d"))
@@ -241,7 +237,7 @@ var functions = {
         }
         if(loadObj.volatility)
         {
-            for(let k of Object.getOwnPropertyNames(loadObj.volatility))
+            for(const k of Object.getOwnPropertyNames(loadObj.volatility))
             {
                 game.volatility[k].level = loadObj.volatility[k].level;
             }
@@ -264,19 +260,19 @@ var functions = {
         }
         if(loadObj.automators)
         {
-            for(let k of Object.keys(loadObj.automators))
+            for(const k of Object.keys(loadObj.automators))
             {
                 game.automators[k].loadFromSave(loadObj.automators[k]);
             }
         }
         if(loadObj.achievements)
         {
-            for(let ach of loadObj.achievements)
+            for(const ach of loadObj.achievements)
             {
-                let idx = game.achievements.findIndex(a => a.title === ach.title);
+                const idx = game.achievements.findIndex(a => a.title === ach.title);
                 if(idx !== -1)
                 {
-                    game.achievements[idx].isCompleted = ach.isCompleted;
+                    game.achievements[idx].isCompconsted = ach.isCompconsted;
                 }
             }
         }
@@ -301,7 +297,7 @@ var functions = {
         {
             try
             {
-                let settings = JSON.parse(decodeURIComponent(escape(atob(localStorage.getItem("SussyLayers_Settings")))));
+                const settings = JSON.parse(decodeURIComponent(escape(atob(localStorage.getItem("SussyLayers_Settings")))));
                 game.settings = Object.assign(game.settings, settings);
             }
             catch(e)
@@ -316,7 +312,7 @@ var functions = {
         {
             if(loadObj.version === "1")
             {
-                for(let l of game.layers)
+                for(const l of game.layers)
                 {
                     if(!l.isNonVolatile() && l.hasTreeUpgrades())
                     {
@@ -328,7 +324,7 @@ var functions = {
 
         if(!isImported && game.settings.offlineProgress && loadObj.timeSaved !== undefined)
         {
-            let t = (Date.now() - loadObj.timeSaved) / 1000;
+            const t = (Date.now() - loadObj.timeSaved) / 1000;
             if(t >= 60) //after offline for over 60 seconds
             {
                 document.querySelector("#loading > p").innerHTML = "Applying Offline Progress...";

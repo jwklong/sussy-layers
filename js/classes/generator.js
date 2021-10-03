@@ -31,9 +31,9 @@ class Generator
         //resource and simple boost
         if(this.id === 0)
         {
-            for(let l of game.layers)
+            for(const l of game.layers)
             {
-                for(let upg of l.getAllUpgrades().filter(upg => upg.type === UPGRADE_RESOURCE || upg.type === UPGRADE_RESOURCE_TIMELAYER))
+                for(const upg of l.getAllUpgrades().filter(upg => upg.type === UPGRADE_RESOURCE || upg.type === UPGRADE_RESOURCE_TIMELAYER))
                 {
                     multi = multi.mul(upg.apply());
                 }
@@ -45,13 +45,13 @@ class Generator
         }
         //individual generator boosts and multi boost
         let f = new Decimal(3);
-        for(let l of game.layers)
+        for(const l of game.layers)
         {
-            for(let upg of l.getAllUpgrades().filter(upg => (upg.type === UPGRADE_GENERATOR && upg.cfg.generators.includes(this.id)) || upg.type === UPGRADE_GENERATOR_TIMELAYER))
+            for(const upg of l.getAllUpgrades().filter(upg => (upg.type === UPGRADE_GENERATOR && upg.cfg.generators.includes(this.id)) || upg.type === UPGRADE_GENERATOR_TIMELAYER))
             {
                 multi = multi.mul(upg.apply());
             }
-            for(let upg of l.getAllUpgrades().filter(upg => upg.type === UPGRADE_GENMULTI))
+            for(const upg of l.getAllUpgrades().filter(upg => upg.type === UPGRADE_GENMULTI))
             {
                 f = f.add(upg.apply());
             }
@@ -61,17 +61,17 @@ class Generator
             }
             if(l.hasChallenges())
             {
-                for(let c of l.challenges.filter(ch => ch.rewardType === CHALLENGE_REWARD_GENMULTI))
+                for(const c of l.challenges.filter(ch => ch.rewardType === CHALLENGE_REWARD_GENMULTI))
                 {
                     f = f.add(c.applyReward());
                 }
-                for(let c of l.challenges.filter(ch => ch.rewardType === CHALLENGE_REWARD_GENMULTI_ABS))
+                for(const c of l.challenges.filter(ch => ch.rewardType === CHALLENGE_REWARD_GENMULTI_ABS))
                 {
                     multi = multi.mul(c.applyReward());
                 }
             }
         }
-        let challengePow = game.currentChallenge && game.currentChallenge.effectType === CHALLENGE_EFFECT_GENMULTI ? game.currentChallenge.applyEffect() : 1;
+        const challengePow = game.currentChallenge && game.currentChallenge.effectType === CHALLENGE_EFFECT_GENMULTI ? game.currentChallenge.applyEffect() : 1;
         return (Decimal.pow(f, Decimal.floor(this.bought.div(10))).mul(multi)).pow(challengePow);
     }
 
@@ -82,8 +82,8 @@ class Generator
 
     getPrice(bought)
     {
-        let power = game.currentChallenge && game.currentChallenge.effectType === CHALLENGE_EFFECT_PRICES_POWER ? game.currentChallenge.applyEffect() : new Decimal(1);
-        let base = new Decimal(this.initPrice).mul(Decimal.pow(this.priceIncrease, Decimal.floor(bought.div(10))));
+        const power = game.currentChallenge && game.currentChallenge.effectType === CHALLENGE_EFFECT_PRICES_POWER ? game.currentChallenge.applyEffect() : new Decimal(1);
+        const base = new Decimal(this.initPrice).mul(Decimal.pow(this.priceIncrease, Decimal.floor(bought.div(10))));
         return Utils.createValueDilation(base, 0.0075).pow(power);
     }
 
@@ -112,7 +112,7 @@ class Generator
         if(this.layer.resource.gte(this.getPriceUntil10()))
         {
             this.layer.resource = this.layer.resource.sub(this.getPriceUntil10());
-            let toAdd = 10 - this.bought.toNumber() % 10;
+            const toAdd = 10 - this.bought.toNumber() % 10;
             this.bought = this.bought.add(toAdd);
             this.amount = this.amount.add(toAdd);
         }
@@ -120,9 +120,9 @@ class Generator
 
     buyMax()
     {
-        let oldBought = this.bought;
+        const oldBought = this.bought;
         this.bought = new Decimal(Utils.determineMaxLevel(this.layer.resource, this));
-        let boughtLevels = this.bought.sub(oldBought);
+        const boughtLevels = this.bought.sub(oldBought);
         this.amount = this.amount.add(boughtLevels);
         if(boughtLevels.gt(0) && this.bought.lt(1e9))
         {

@@ -7,7 +7,7 @@ var game = {
     automators: {
         autoMaxAll: new Automator("Auto Max All", "Automatically buys max on all Layers", () =>
         {
-            for(let i = Math.max(0, game.volatility.autoMaxAll.apply().toNumber()); i < game.layers.length; i++)
+            for(const i = Math.max(0, game.volatility.autoMaxAll.apply().toNumber()); i < game.layers.length; i++)
             {
                 game.layers[i].maxAll();
             }
@@ -18,7 +18,7 @@ var game = {
             })),
         autoPrestige: new Automator("Auto Prestige", "Automatically prestiges all Layers", () =>
         {
-            for(let i = 0; i < game.layers.length - 1; i++)
+            for(const i = 0; i < game.layers.length - 1; i++)
             {
                 if(game.layers[game.layers.length - 2].canPrestige() && !game.settings.autoPrestigeHighestLayer)
                 {
@@ -51,8 +51,8 @@ var game = {
             }, level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.add(1).toNumber())), level => level.sub(1), null, {
                 getEffectDisplay: function()
                 {
-                    let val1 = this.level.eq(0) ? "None" : PrestigeLayer.getNameForLayer(this.apply().toNumber());
-                    let val2 = PrestigeLayer.getNameForLayer(this.getEffect(this.level.add(1)).toNumber());
+                    const val1 = this.level.eq(0) ? "None" : PrestigeLayer.getNameForLayer(this.apply().toNumber());
+                    const val2 = PrestigeLayer.getNameForLayer(this.getEffect(this.level.add(1)).toNumber());
                     return val1 + " → " + val2;
                 }
             }),
@@ -60,7 +60,7 @@ var game = {
             () => "Boost the Prestige Reward you get per second",
             function(level)
             {
-                let max = PrestigeLayer.getPrestigeCarryOverForLayer(Math.round(level.toNumber() * 1.3) + 3);
+                const max = PrestigeLayer.getPrestigeCarryOverForLayer(Math.round(level.toNumber() * 1.3) + 3);
                 return Decimal.pow(10, new Random(level.toNumber() * 10 + 10).nextDouble() * max).round();
             }, level => new Decimal(0.5 + 0.1 * level), null, {
                 getEffectDisplay: effectDisplayTemplates.percentStandard(0)
@@ -72,8 +72,8 @@ var game = {
             }, level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.add(2).toNumber()) * 0.125), level => level.sub(1), null, {
                 getEffectDisplay: function()
                 {
-                    let val1 = this.level.eq(0) ? "None" : PrestigeLayer.getNameForLayer(this.apply().toNumber());
-                    let val2 = PrestigeLayer.getNameForLayer(this.getEffect(this.level.add(1)).toNumber());
+                    const val1 = this.level.eq(0) ? "None" : PrestigeLayer.getNameForLayer(this.apply().toNumber());
+                    const val2 = PrestigeLayer.getNameForLayer(this.getEffect(this.level.add(1)).toNumber());
                     return val1 + " → " + val2;
                 }
             }),
@@ -124,4 +124,4 @@ var game = {
         new Achievement("get the impossible upgrade", "what", "winwinwinwinwin", () => game.sabotageLayer.upgrades.winPercentage.level.gte("1"))
     ]
 };
-let initialGame = functions.getSaveString();
+const initialGame = functions.getSaveString();

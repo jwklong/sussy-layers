@@ -58,7 +58,7 @@ class SabotageLayer
 
     maxAll()
     {
-        for(let k of Object.keys(this.upgrades))
+        for(const k of Object.keys(this.upgrades))
         {
             this.upgrades[k].buyMax();
         }
@@ -75,7 +75,7 @@ class SabotageLayer
     loadFromSave(obj)
     {
         this.sabotagePoints = obj.sabotagePoints;
-        for(let k of Object.getOwnPropertyNames(obj.upgrades))
+        for(const k of Object.getOwnPropertyNames(obj.upgrades))
         {
             if(this.upgrades[k])
             {

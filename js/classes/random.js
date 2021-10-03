@@ -24,7 +24,7 @@ class Random
 
     next()
     {
-        let increment = this.seed + parseInt(Random.SEQ[this.generation % Random.SEQ.length]);
+        const increment = this.seed + parseInt(Random.SEQ[this.generation % Random.SEQ.length]);
         this.n = (this.n + increment) * increment;
         this.n %= Random.INT_MAX;
         this.generation++;

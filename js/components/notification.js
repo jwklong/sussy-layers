@@ -2,8 +2,8 @@ Vue.component("notification", {
     props: ["notification"],
     computed: {
         notificationClass: function() {
-            let classNames = ["", "error", "success", "special"];
-            let res = {};
+            const classNames = ["", "error", "success", "special"];
+            const res = {};
             res[classNames[this.notification.type]] = true;
             return res;
         }

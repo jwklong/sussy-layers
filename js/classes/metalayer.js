@@ -56,11 +56,11 @@ class MetaLayer
     getMultiPS()
     {
         let multi = new Decimal(1);
-        for(let upg of this.multiplierUpgrades)
+        for(const upg of this.multiplierUpgrades)
         {
             multi = multi.mul(upg.apply());
         }
-        for(let upg of this.powerUpgrades)
+        for(const upg of this.powerUpgrades)
         {
             multi = multi.pow(upg.apply());
         }
@@ -88,22 +88,22 @@ class MetaLayer
     {
         if(this.layer.gt(1e6))
         {
-            let carryOver = PrestigeLayer.getPrestigeCarryOverForLayer(this.layer);
+            const carryOver = PrestigeLayer.getPrestigeCarryOverForLayer(this.layer);
             return Decimal.pow(10, Decimal.pow(carryOver, Decimal.max(0, this.layer)));
         }
-        let log = new Decimal(1);
-        for(let i = 0; i < Math.min(10, this.layer); i++)
+        const log = new Decimal(1);
+        for(const i = 0; i < Math.min(10, this.layer); i++)
         {
             log = log.mul(PrestigeLayer.getPrestigeCarryOverForLayer(i));
         }
-        let carryOver = PrestigeLayer.getPrestigeCarryOverForLayer(this.layer);
-        let fract = ((carryOver - 1) * this.resource.log10().div(carryOver - 1)) + (1);
+        const carryOver = PrestigeLayer.getPrestigeCarryOverForLayer(this.layer);
+        const fract = ((carryOver - 1) * this.resource.log10().div(carryOver - 1)) + (1);
         return Decimal.pow(10, Decimal.pow(carryOver, Decimal.max(0, this.layer.sub(10))).mul(log).mul(fract));
     }
 
     maxAll()
     {
-        for(let u of this.powerUpgrades.concat(this.multiplierUpgrades))
+        for(const u of this.powerUpgrades.concat(this.multiplierUpgrades))
         {
             u.buyMax();
         }
@@ -118,7 +118,7 @@ class MetaLayer
                 this.resource = this.resource.mul(Decimal.pow(this.getMultiPS(), dt));
                 if(this.resource.log10().gte(PrestigeLayer.getPrestigeCarryOverForLayer(this.layer.toNumber())))
                 {
-                    let layerAmnt = this.layer.gt(10) ? this.resource.log(Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(10))).floor() : 1;
+                    const layerAmnt = this.layer.gt(10) ? this.resource.log(Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(10))).floor() : 1;
                     this.resource = this.resource.div(Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(this.layer.toNumber())).pow(layerAmnt));
                     this.layer = this.layer.add(layerAmnt);
                 }

@@ -3,7 +3,7 @@ Vue.component("layer-colored-text", {
     computed: {
         textColor: function()
         {
-            let lid = new Decimal(this.getLayerId());
+            const lid = new Decimal(this.getLayerId());
             if(this.getLayerId() instanceof Decimal && this.getLayerId().gte(INFINITY))
             {
                 return "#ffffff";
@@ -17,10 +17,10 @@ Vue.component("layer-colored-text", {
         },
         textGlow: function()
         {
-            let thickness = 0.025 * this.getLayerId();
-            let t = [Math.min(0.7, thickness), Math.min(0.7, thickness / 2),
+            const thickness = 0.025 * this.getLayerId();
+            const t = [Math.min(0.7, thickness), Math.min(0.7, thickness / 2),
                 Math.min(0.7, Math.max(0, thickness - 0.3) / 4)];
-            let color = "currentcolor";
+            const color = "currentcolor";
             return "0px 0px " + t[0] + "em currentcolor"+
                 ",0px 0px " + t[1] + "em currentcolor"+
                 ",0px 0px " + t[2] + "em currentcolor";
@@ -34,7 +34,7 @@ Vue.component("layer-colored-text", {
         },
         getStyle: function()
         {
-            let styles = {};
+            const styles = {};
             if(game.settings.resourceColors)
             {
                 styles.color = this.textColor;

@@ -70,7 +70,7 @@ class AlephLayer
 
     maxAll()
     {
-        for(let k of Object.keys(this.upgrades))
+        for(const k of Object.keys(this.upgrades))
         {
             this.upgrades[k].buyMax();
         }
@@ -87,7 +87,7 @@ class AlephLayer
     loadFromSave(obj)
     {
         this.aleph = obj.aleph;
-        for(let k of Object.getOwnPropertyNames(obj.upgrades))
+        for(const k of Object.getOwnPropertyNames(obj.upgrades))
         {
             if(this.upgrades[k])
             {
