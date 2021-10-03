@@ -63,8 +63,8 @@ class Utils
         const rand = new Random(seed);
         const vowels = "aeiou";
         const consonants = "bcdfghjklmnpqrstvwxyz";
-        const word = "";
-        for(const i = 0; i < length; i++)
+        let word = "";
+        for(let i = 0; i < length; i++)
         {
             word += i % 2 === 0 ? vowels[rand.nextInt(vowels.length)] : consonants[rand.nextInt(consonants.length)];
         }

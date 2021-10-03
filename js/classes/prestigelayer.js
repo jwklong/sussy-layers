@@ -602,9 +602,9 @@ class PrestigeLayer
         }
         if(this.hasTreeUpgrades())
         {
-            for(const r = 0; r < this.treeUpgrades.length; r++)
+            for(let r = 0; r < this.treeUpgrades.length; r++)
             {
-                for(const c = 0; c < this.treeUpgrades[r].length; c++)
+                for(let c = 0; c < this.treeUpgrades[r].length; c++)
                 {
                     this.treeUpgrades[r][c].level = new Decimal(0);
                 }

@@ -7,7 +7,7 @@ var game = {
     automators: {
         autoMaxAll: new Automator("Auto Max All", "Automatically buys max on all Layers", () =>
         {
-            for(const i = Math.max(0, game.volatility.autoMaxAll.apply().toNumber()); i < game.layers.length; i++)
+            for(let i = Math.max(0, game.volatility.autoMaxAll.apply().toNumber()); i < game.layers.length; i++)
             {
                 game.layers[i].maxAll();
             }
@@ -18,7 +18,7 @@ var game = {
             })),
         autoPrestige: new Automator("Auto Prestige", "Automatically prestiges all Layers", () =>
         {
-            for(const i = 0; i < game.layers.length - 1; i++)
+            for(let i = 0; i < game.layers.length - 1; i++)
             {
                 if(game.layers[game.layers.length - 2].canPrestige() && !game.settings.autoPrestigeHighestLayer)
                 {

@@ -101,7 +101,7 @@ function tickGame(seconds)
     if(numActiveLayers < game.layers.length && numActiveLayers > 0)
     {
         //if the layer is active, tick every frame
-        for(const i = 0; i < game.layers.length; i++)
+        for(let i = 0; i < game.layers.length; i++)
         {
             if(i < minActiveLayer || i >= maxActiveLayer || game.layers[i] === game.currentLayer)
             {
@@ -111,7 +111,7 @@ function tickGame(seconds)
         //increase and wrap the minimized layer
         //to increase performance, inactive layers only tick one at a time
         const layersAtOnce = game.settings.layerTickSpeed;
-        for(const i = 0; i < layersAtOnce; i++)
+        for(let i = 0; i < layersAtOnce; i++)
         {
             minimizedLayer = (minimizedLayer + 1) % game.layers.length;
             while(minimizedLayer < minActiveLayer || minimizedLayer >= maxActiveLayer || game.layers[minimizedLayer] === game.currentLayer)
@@ -157,14 +157,14 @@ function tickGame(seconds)
 
 function simulateGameTime(seconds)
 {
-    const times = 100;
-    const timePerTick = seconds / 100;
+    let times = 100;
+    let timePerTick = seconds / 100;
     if(timePerTick < 0.01)
     {
         times = Math.floor(times / (0.01 / timePerTick));
         timePerTick = 0.01;
     }
-    for(const i = 0; i < times; i++)
+    for(let i = 0; i < times; i++)
     {
         tickGame(timePerTick);
     }

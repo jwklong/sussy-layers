@@ -1,4 +1,4 @@
-var functions = {
+let functions = {
     formatNumber: function(n, prec, prec1000, lim = new Decimal(1000))
     {
         if(typeof n === "number")
@@ -187,7 +187,7 @@ var functions = {
     loadGame(str)
     {
         let loadObj;
-        const isImported = str !== undefined;
+        const isImported = typeof(str) !== "undefined";
         str = str || localStorage.getItem("SussyLayers") || null;
         if(str === null) return;
         if(str === "among us")
