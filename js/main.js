@@ -61,7 +61,7 @@ function tickGame(seconds)
         functions.generateLayer(game.layers.length);
     }
 
-    if(game.currentChallenge && game.currentChallenge.isCompconsted())
+    if(game.currentChallenge && game.currentChallenge.isCompleted())
     {
         game.currentChallenge.succeed();
     }
