@@ -1,6 +1,11 @@
 Vue.component("changelog-tab", {
     template: `<div class="changelog-tab">
     <guide-item>
+    <template v-slot:title>β - v1.1.0 (demo 1)</template>
+    <template v-slot:text>some minor noticable changes for epic
+    </template>
+    </guide-item>
+    <guide-item>
     <template v-slot:title>α - v1.0.5</template>
     <template v-slot:text>even more bug fixes
     </template>

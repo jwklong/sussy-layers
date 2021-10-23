@@ -13,8 +13,11 @@ Vue.component("layer-navigation", {
             multipleLayers: () => game.layers.length > 1,
             buttonFontSize: function(layer)
             {
-                const id = layer.layer;
-                const fntSize = 1.25 / (1 + 0.2 * Math.min(2, Math.floor(id / 10))); //no longer 24 greek letters * 2
+                let id = layer.layer;
+                if (id < 0) {
+                    id = 0 - id
+                }
+                const fntSize = 1.25 / (1 + 0.2 * Math.min(2, Math.floor(id / 20))); //no longer 24 greek letters * 2
                 return fntSize + "rem";
             },
             isDisplayed: function(layerId)
@@ -27,7 +30,7 @@ Vue.component("layer-navigation", {
     template: `<div class="layer-navigation">
 <button :class="{selected: l.layer === currentLayer() && multipleLayers()}" :title="fullLayerName(l.layer)" v-if="isDisplayed(i)" v-for="(l, i) in layers" :key="i" @click="setCurrentLayer(l)" :style="{fontSize: buttonFontSize(l)}">
     <resource-name :layerid="l.layer"></resource-name>
-    <layer-colored-text v-if="showOrdinals" class="ordinal" :layerid="l.layer">#{{l.layer + 1}}</layer-colored-text>
+    <layer-colored-text v-if="showOrdinals" class="ordinal" :layerid="l.layer">#{{Number(l.layer) + 1}}</layer-colored-text>
 </button>
 </div>`
 });

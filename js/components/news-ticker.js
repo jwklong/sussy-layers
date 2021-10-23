@@ -12,7 +12,11 @@ Vue.component("news-ticker", {
                 "hamburger",
                 "what if the how is why where there",
                 "monke",
-                "lgfdjoibglkjfdsaiuyternbvcxihfdsjhkgkjhdsfhgfdkjbersfiuhvfnhoiusahgfdgjfdsjhsdjnbbhdsaayuerhgjfdsjhgdgfkgfyssabvcbklijhgfjhaenjdsfjlkfdskjhfdsbngfkjheebkgfbjhdskjhgfdlkjhgfdersbnmslkjhgflhkjs sorry my cat stepped on my keyboard"
+                Utils.createRandomWord(250) + " sorry my cat stepped on my keyboard",
+                "ERROR: " + Utils.createRandomWord(8) + " does not exist",
+                "nothing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ok now im done",
+                "h m m m m m m m m m m m m m m m m m",
+                "idk man, you look kinda sus"
             ],
             currentMessage: "",
             messageIndex: -1

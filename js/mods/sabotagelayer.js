@@ -28,7 +28,7 @@ class SabotageLayer
                 level => new Decimal("1e1000"),
                 level => new Decimal("1").add(level.mul("0.2")), {
                     maxLevel: 1,
-                    getEffectDisplay: effectDisplayTemplates.numberStandard(0,"^^","")
+                    getEffectDisplay: effectDisplayTemplates.numberStandard(1,"^^","")
                 }),
             winPercentage: new sabotageUpgrade("increase the percentage of winning because too hard",
                 level => new Decimal("eeee308"),

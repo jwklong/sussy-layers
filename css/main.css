@@ -1,21 +1,21 @@
 :root{
-    --background-body: #ffffff;
-    --background-header: rgb(251, 251, 251);
-    --color-base: white;
-    --color-primary: dodgerblue;
-    --color-hover: #eeeeee;
-    --color-hover-strong: #dddddd;
-    --color-contrast: black;
-    --color-success: #c8ffb7;
-    --button-dark: #1a1a1a;
-    --notification--standard: dodgerblue;
-    --notification--standard--border: #135698;
-    --notification--error: #f33333;
-    --notification--error--border: #ae2222;
-    --notification--success: #4fd923;
-    --notification--success--border: #2e9114;
-    --notification--special: #d9bb23;
-    --notification--special--border: #4a3f0e;
+    --background-body: #000000;
+    --background-header: #ff00ff;
+    --color-base: #ff00ff;
+    --color-primary: #000000;
+    --color-hover: #000000;
+    --color-hover-strong: #ff00ff;
+    --color-contrast: #ffffff;
+    --color-success: #ff00ff;
+    --button-dark: #000000;
+    --notification--standard: #ff00ff;
+    --notification--standard--border: #000000;
+    --notification--error: #ff00ff;
+    --notification--error--border: #000000;
+    --notification--success: #ff00ff;
+    --notification--success--border: #000000;
+    --notification--special: #ff00ff;
+    --notification--special--border: #000000;
 }
 
 @keyframes resource-hue-spin{
@@ -199,11 +199,11 @@ body{
 }
 
 button{
-    border-radius: 2px;
+    border-radius: 15px;
     background-color: var(--color-base);
     color: var(--color-contrast);
     padding: 2px 4px;
-    border: 1.5px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
 
     transition: background-color 500ms, filter 250ms;
 }
@@ -217,7 +217,7 @@ button:active:not(:disabled){
 }
 
 button:disabled{
-    filter: brightness(0.5);
+    filter: brightness(0.7);
 }
 
 button.selected{

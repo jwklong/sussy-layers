@@ -78,6 +78,21 @@ const game = {
                 }
             }),
     },
+    achievements: [
+        new Achievement("sus", "start the game", "?", () => (game.layers[0] && game.layers[0].resource.gt(1)) || game.metaLayer.active),
+        new Achievement("pointy", "get epic pointy thing", "☛", () => (game.layers[1] && game.layers[1].resource.gt(1)) || game.metaLayer.active),
+        new Achievement("gun", "bang bang bang - kitchen gun guy", "🔫", () => (game.layers[2] && game.layers[2].resource.gt(1)) || game.metaLayer.active),
+        new Achievement("when life gives you tasks", "turn them into useless upgrades that nobody will use", "🗡", () => (game.layers[3] && game.layers[3].resource.gt(1)) || game.metaLayer.active),
+        new Achievement("WHEN THE IM-", "hey hey its the icon from the game called sussy layers", "ඞ", () => (game.layers[4] && game.layers[4].resource.gt(1)) || game.metaLayer.active),
+        new Achievement("impostor impostor", "double impostor!??!?", PrestigeLayer.getNameForLayer(9), () => (game.layers[9] && game.layers[9].resource.gt(1)) || game.metaLayer.active),
+        new Achievement("sussy mode", "you are the impostor", PrestigeLayer.getNameForLayer(23), () => game.metaLayer.active),
+        new Achievement("cool", "your good at this", "👍", () => game.metaLayer.layer.gte("10000")),
+        new Achievement("something", "1e38 or something i think", "idk", () => game.metaLayer.layer.gte("1e38")),
+        new Achievement("you win", "or do you?!?!?!!", "<span class='flipped-v'>ඞ</span>", () => game.metaLayer.layer.gte(INFINITY)),
+        new Achievement("Starting Out", "Reach 1 α (somehow?)", "αααααααααα", () => game.metaLayer.layer.gte(INFINITY2)),
+        new Achievement("Other Times Await", "something's up", "ββββββββββ", () => game.metaLayer.layer.gte(INFINITY3)),
+        new Achievement("get the impossible upgrade", "what", "winwinwinwinwin", () => game.sabotageLayer.upgrades.winPercentage.level.gte("1"))
+    ],
     alephLayer: new AlephLayer(),
     sabotageLayer: new SabotageLayer(),
     restackLayer: new ReStackLayer(),
@@ -108,20 +123,5 @@ const game = {
         theme: "sussy.css",
         layerNames: [["○","☛","🔫","🗡","ඞ"], "</-=+x>"],
     },
-    achievements: [
-        new Achievement("sus", "start the game", "?", () => (game.layers[0] && game.layers[0].resource.gt(0)) || game.metaLayer.active),
-        new Achievement("pointy", "get epic pointy thing", "☛", () => (game.layers[1] && game.layers[1].resource.gt(1)) || game.metaLayer.active),
-        new Achievement("gun", "bang bang bang - kitchen gun guy", "🔫", () => (game.layers[2] && game.layers[2].resource.gt(1)) || game.metaLayer.active),
-        new Achievement("when life gives you tasks", "turn them into useless upgrades that nobody will use", "🗡", () => (game.layers[3] && game.layers[3].resource.gt(1)) || game.metaLayer.active),
-        new Achievement("WHEN THE IM-", "hey hey its the icon from the game called sussy layers", "ඞ", () => (game.layers[4] && game.layers[4].resource.gt(1)) || game.metaLayer.active),
-        new Achievement("impostor impostor", "double impostor!??!?", PrestigeLayer.getNameForLayer(9), () => (game.layers[9] && game.layers[9].resource.gt(1)) || game.metaLayer.active),
-        new Achievement("sussy mode", "you are the impostor", PrestigeLayer.getNameForLayer(23), () => game.metaLayer.active),
-        new Achievement("cool", "your good at this", "👍", () => game.metaLayer.layer.gte("10000")),
-        new Achievement("something", "1e38 or something i think", "idk", () => game.metaLayer.layer.gte("1e38")),
-        new Achievement("you win", "or do you?!?!?!!", "<span class='flipped-v'>ඞ</span>", () => game.metaLayer.layer.gte(INFINITY)),
-        new Achievement("Starting Out", "Reach 1 α (somehow?)", "αααααααααα", () => game.metaLayer.layer.gte(INFINITY2)),
-        new Achievement("Other Times Await", "something's up", "ββββββββββ", () => game.metaLayer.layer.gte(INFINITY3)),
-        new Achievement("get the impossible upgrade", "what", "winwinwinwinwin", () => game.sabotageLayer.upgrades.winPercentage.level.gte("1"))
-    ]
 };
 const initialGame = functions.getSaveString();

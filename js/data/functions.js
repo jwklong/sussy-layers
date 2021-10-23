@@ -95,7 +95,7 @@ const functions = {
     setNames: function(stuff)
     {
         game.settings.layerNames = stuff;
-        [LETTERS, ORDERS] = stuff;
+        [LETTERS, ORDERS, GIANTS] = stuff;
     },
     createNotification: function(notification)
     {
