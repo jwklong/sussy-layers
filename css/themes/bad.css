@@ -13,6 +13,24 @@
     --notification--special: #99861b;
 }
 
-img[src*=".svg"]{
-    filter: invert(0.8);
+@keyframes colorchange{
+    0%{
+        filter: hue-rotate(72deg);
+    }
+    25%{
+        filter: hue-rotate(144deg);
+    }
+    50%{
+        filter: hue-rotate(216deg);
+    }
+    75%{
+        filter: hue-rotate(288deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+img{
+    animation: colorchange 10s infinite linear;
 }
