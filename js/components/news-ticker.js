@@ -14,7 +14,7 @@ Vue.component("news-ticker", {
                 "monke",
                 Utils.createRandomWord(250) + " sorry my cat stepped on my keyboard",
                 "ERROR: " + Utils.createRandomWord(8) + " does not exist",
-                "nothing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ok now im done",
+                "XD u just got                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 really slow text that lasts forever",
                 "h m m m m m m m m m m m m m m m m m",
                 "idk man, you look kinda sus"
             ],
