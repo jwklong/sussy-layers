@@ -93,6 +93,6 @@ button, header, .news-ticker, .guide-item, .guide-item div, textarea, .automator
     animation: rainbow-bg 15s infinite linear, rainbow-border 15s infinite linear;
 }
 
-img[src*=".svg"]{
+img{
     filter: invert(1) drop-shadow(0.04em 0.04em 0.075em white);
 }

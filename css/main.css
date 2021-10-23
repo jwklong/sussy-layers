@@ -8,8 +8,8 @@
     --color-contrast: #ffffff;
     --color-success: #ff00ff;
     --button-dark: #000000;
-    --notification--standard: #ff00ff;
-    --notification--standard--border: #000000;
+    --notification--standard: var(--notification--success);
+    --notification--standard--border: var(--notification--success--border); 
     --notification--error: #ff00ff;
     --notification--error--border: #000000;
     --notification--success: #ff00ff;

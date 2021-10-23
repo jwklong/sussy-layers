@@ -13,6 +13,6 @@
     --notification--special: #99861b;
 }
 
-img[src*=".svg"]{
+img{
     filter: invert(0.9);
 }

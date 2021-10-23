@@ -1,11 +1,11 @@
 :root{
-    --background-body: #aa0000;
-    --background-header: #880000;
-    --color-base: #770000;
+    --background-body: #00aa00;
+    --background-header: #008800;
+    --color-base: #007700;
     --color-primary: #FBDBD6;
-    --color-hover: #bb0000;
-    --color-hover-strong: #cc0000;
-    --button-dark: #4c0000;
+    --color-hover: #00bb00;
+    --color-hover-strong: #00cc00;
+    --button-dark: #004c00;
     --color-contrast: #FBDBD6;
     --color-success: #707070;
 }
@@ -33,6 +33,6 @@ body{
     animation: rotating 45s infinite linear;
 }
 
-img[src*=".svg"]{
+img{
     filter: invert(0.8);
 }
