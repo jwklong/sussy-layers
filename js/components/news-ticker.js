@@ -26,11 +26,7 @@ Vue.component("news-ticker", {
     computed: {
         animationDuration: function()
         {
-            if (this.currentMessage !== "i am S P E E D") {
-                return 10 + 0.1 * this.currentMessage.replace(/<.*?>/g, "").length;
-            }else{
-                return 3
-            }
+            return this.currentMessage !== "i am S P E E D" ? 10 + 0.1 * this.currentMessage.replace(/<.*?>/g, "").length : 3;
         }
     },
     methods: {
