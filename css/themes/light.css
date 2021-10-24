@@ -1,0 +1,25 @@
+:root{
+    --background-body: #ffffff;
+    --background-header: #ffffff;
+    --color-base: #ffffff;
+    --color-primary: #ffffff;
+    --color-hover: #ffffff;
+    --color-hover-strong: #ffffff;
+    --color-contrast: #ffffff;
+    --color-success: #ffffff;
+    --button-dark: #ffffff;
+    --notification--error: #ffffff;
+    --notification--success: #ffffff;
+    --notification--special: #ffffff;
+}
+
+*{
+    background-color: #ffffff;
+    color: #ffffff;
+    border-color: #ffffff;
+    scrollbar-color: #ffffff;
+}
+
+img{
+    filter: brightness(255);
+}

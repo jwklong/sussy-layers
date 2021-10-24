@@ -388,52 +388,6 @@ class MetaDynamicLayerUpgrade extends AbstractUpgrade
     }
 }
 
-class OxygenDynamicLayerUpgrade extends AbstractUpgrade
-{
-    constructor(description, getLayer, getPrice, getEffect, cfg)
-    {
-        super(getPrice, getEffect, cfg);
-        this.description = description;
-        this.getLayer = getLayer;
-    }
-
-    currentLayer()
-    {
-        return this.getLayer(this.level);
-    }
-
-    canBuy()
-    {
-        return this.currentLayer().lt(game.oxygenLayer.layer) || (this.currentLayer().eq(game.oxygenLayer.layer) && game.oxygenLayer.resource.gte(this.currentPrice()));
-    }
-
-    buy()
-    {
-        if(!this.isBuyable()) return;
-        const canBuy = this.canBuy();
-        if(canBuy)
-        {
-            game.oxygenLayer.layer = game.restackLayer.upgradeTreeNames.substractLayers.apply() ? game.oxygenLayer.layer.sub(this.currentLayer()) : new Decimal(0);
-            game.oxygenLayer.resource = new Decimal(1);
-            this.level = this.level.add(1);
-        }
-    }
-
-    buyMax()
-    {
-        const oldLvl = this.level;
-        this.level = new Decimal(Utils.determineMaxLevel(game.oxygenLayer.layer, this));
-        if(this.level.sub(oldLvl).gt(0) && this.level.lt(1e9))
-        {
-            game.oxygenLayer.layer = game.oxygenLayer.layer.sub(this.getLayer(this.level.sub(1)));
-        }
-        while(this.currentLayer().lte(game.oxygenLayer.layer) && this.level.lt(1e9) && this.level.lt(this.maxLevel))
-        {
-            this.buy();
-        }
-    }
-}
-
 const effectDisplayTemplates = {
     numberStandard: function(digits, prefix = "x", suffix = "")
     {

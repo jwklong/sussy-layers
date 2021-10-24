@@ -16,7 +16,8 @@ Vue.component("news-ticker", {
                 "ERROR: " + Utils.createRandomWord(8) + " does not exist",
                 "XD u just got                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 really slow text that lasts forever",
                 "h m m m m m m m m m m m m m m m m m",
-                "idk man, you look kinda sus"
+                "idk man, you look kinda sus",
+                "i am S P E E D"
             ],
             currentMessage: "",
             messageIndex: -1
@@ -25,7 +26,11 @@ Vue.component("news-ticker", {
     computed: {
         animationDuration: function()
         {
-            return 10 + 0.1 * this.currentMessage.replace(/<.*?>/g, "").length;
+            if (this.currentMessage !== "i am S P E E D") {
+                return 10 + 0.1 * this.currentMessage.replace(/<.*?>/g, "").length;
+            }else{
+                return 3
+            }
         }
     },
     methods: {
