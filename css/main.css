@@ -528,6 +528,34 @@ p.resource-display > span:first-child{
     width: 5em;
 }
 
+/*Hackers*/
+
+.hackers-tab{
+    padding: 1rem;
+}
+
+.hackers-tab .hacker{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.hacker {
+    display: flex;
+    width: 45%;
+    border: 1px solid var(--color-primary);
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.hacker label{
+    display: block;
+}
+
+.hacker label input[type=number]{
+    width: 5em;
+}
+
 /*Restack*/
 
 .restack-tab{
