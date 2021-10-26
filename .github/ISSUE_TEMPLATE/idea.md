@@ -1,9 +1,9 @@
 ---
 name: Idea
-about: Suggest an idea for this project
+about: content for the next update
 title: 'Feature request:'
-labels: ''
-assignees: ''
+labels: feature, not reviewed
+assignees: jwklong
 
 ---
 

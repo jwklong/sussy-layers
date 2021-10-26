@@ -2,8 +2,8 @@
 name: Bug report
 about: when the bug must be fixed
 title: 'Bug:'
-labels: ''
-assignees: ''
+labels: bug, not reviewed
+assignees: jwklong
 
 ---
 
