@@ -4,9 +4,9 @@ Vue.component("guide-tab", {
         gammaUnlocked: () => game.layers.length >= 3 || game.metaLayer.active,
         epsilonUnlocked: () => game.layers.length >= 5 || game.metaLayer.active,
         alephUnlocked: () => game.alephLayer.isUnlocked() || game.metaLayer.active,
-        sabotageUnlocked: () => game.sabotageLayer.isUnlocked(),
         restackUnlocked: () => game.restackLayer.isUnlocked() || game.metaLayer.active,
-        metaUnlocked: () => game.metaLayer.active
+        metaUnlocked: () => game.metaLayer.active,
+        sabotageUnlocked: () => game.sabotageLayer.isUnlocked()
     },
     methods: {
         formatNumber: (n, prec, prec1000, lim) => functions.formatNumber(n, prec, prec1000, lim)
@@ -82,6 +82,11 @@ Vue.component("guide-tab", {
     <guide-item v-if="metaUnlocked">
         <template v-slot:title>better</template>
         <template v-slot:text>get better at game
+        </template>
+    </guide-item>
+    <guide-item v-if="sabotageUnlocked">
+        <template v-slot:title>sabotag</template>
+        <template v-slot:text>o no i have to go fix everything
         </template>
     </guide-item>
 </div>`
