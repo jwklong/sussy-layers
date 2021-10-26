@@ -118,6 +118,17 @@ class ReStackLayer
                         maxLevel: 1,
                         getEffectDisplay: effectDisplayTemplates.numberStandard(2, "^")
                     }),
+            ],
+            [
+                new RestackLayerUpgrade("Unlock Hackers",
+                    level => new Decimal("1ee340"),
+                    level => level.gt(0), {
+                        maxLevel: 1,
+                        getEffectDisplay: function()
+                        {
+                            return this.level.gt(0) ? "Unlocked" : "Locked";
+                        }
+                    })
             ]
         ];
         this.upgradeTree[1][0].setRequirements([this.upgradeTree[0][0]], [this.upgradeTree[1][1]]);
@@ -128,6 +139,7 @@ class ReStackLayer
         this.upgradeTree[4][0].setRequirements([this.upgradeTree[3][0], this.upgradeTree[3][1]], []);
         this.upgradeTree[5][0].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][1]]);
         this.upgradeTree[5][1].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][0]]);
+        this.upgradeTree[6][0].setRequirements([this.upgradeTree[5][0], this.upgradeTree[5][1]], []);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -137,7 +149,8 @@ class ReStackLayer
             resourcePowerersUpgrades: this.upgradeTree[3][0],
             substractLayers: this.upgradeTree[4][0],
             resourcePowerersStrength: this.upgradeTree[5][0],
-            resourceMultipliersLevelScaling: this.upgradeTree[5][1]
+            resourceMultipliersLevelScaling: this.upgradeTree[5][1],
+            unlockHackers: this.upgradeTree[6][0]
         };
     }
 
@@ -215,6 +228,11 @@ class ReStackLayer
         {
             game.metaLayer.layer = new Decimal(0);
             game.metaLayer.resource = new Decimal(1);
+            game.sabotageLayer = new SabotageLayer();
+            for(const k of Object.keys(game.hackers))
+            {
+                game.hackers[k].upgrade.level = new Decimal(0);
+            }
         }
         game.highestUpdatedLayer = new Decimal(0);
         game.alephLayer = new AlephLayer();

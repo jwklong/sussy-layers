@@ -3,8 +3,8 @@ const computed = {
     {
         return game.metaLayer.active;
     },
-    theAnswerToLifeAndTheUniverse: function()
+    canHack: function()
     {
-        return 42;
+        return game.restackLayer.upgradeTreeNames.unlockHackers.apply();
     }
 };
