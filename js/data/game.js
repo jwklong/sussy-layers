@@ -44,7 +44,7 @@ const game = {
             })),
     },
     hackers: {
-        autoKiller: new Automator("Auto Upgrade Killers", "Automatically buys max on all killers", () =>
+        autoKiller: new Hacker("Auto Upgrade Killers", "Automatically buys max on all killers", () =>
         {
             game.metaLayer.maxAll()
         }, new DynamicLayerUpgrade(level => Math.floor(level / 3) + 1, () => null, () => "Decrease the Automator interval",

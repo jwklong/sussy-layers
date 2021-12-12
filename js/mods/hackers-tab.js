@@ -8,9 +8,11 @@ Vue.component("hackers-tab", {
     methods: {
         alephUnlocked: () => game.alephLayer.isUnlocked()
     },
+    //    <hacker :hacker="hackers.autoKiller"></hacker>
     template: `<div class="hacker-tab">
 <div class="hackers">
-    <hacker :hacker="hackers.autoKiller"></hacker>
+    <h1>HACKERS DISABLED</h1>
+    <h3>this is a unfinished feature, check back in a later update. the finished version will have automators and upgrades so yeah its cool</h3>
 </div>
 </div>`
 })

@@ -120,6 +120,15 @@ class ReStackLayer
                     }),
             ],
             [
+                new RestackLayerUpgrade("Time since ReStack no longer resets",
+                    level => new Decimal("1ee100"),
+                    level => level.gt(0), {
+                        maxLevel: 1,
+                        getEffectDisplay: function()
+                        {
+                            return this.level.gt(0) ? "Doesn't reset" : "Resets";
+                        }
+                    }),
                 new RestackLayerUpgrade("Unlock Hackers",
                     level => new Decimal("1ee340"),
                     level => level.gt(0), {
@@ -140,6 +149,7 @@ class ReStackLayer
         this.upgradeTree[5][0].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][1]]);
         this.upgradeTree[5][1].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][0]]);
         this.upgradeTree[6][0].setRequirements([this.upgradeTree[5][0], this.upgradeTree[5][1]], []);
+        this.upgradeTree[6][1].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[6][0]]);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -150,7 +160,8 @@ class ReStackLayer
             substractLayers: this.upgradeTree[4][0],
             resourcePowerersStrength: this.upgradeTree[5][0],
             resourceMultipliersLevelScaling: this.upgradeTree[5][1],
-            unlockHackers: this.upgradeTree[6][0]
+            unlockHackers: this.upgradeTree[6][0],
+            noReset: this.upgradeTree[6][1]
         };
     }
 
@@ -223,7 +234,9 @@ class ReStackLayer
         game.layers = [];
         functions.generateLayer(0);
         game.currentLayer = game.layers[0];
-        this.timeSpent = 0;
+        if(this.upgradeTreeNames.noReset.apply() === "Resets") {
+            this.timeSpent = 0;
+        }
         if(game.metaLayer.active)
         {
             game.metaLayer.layer = new Decimal(0);
