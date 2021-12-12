@@ -254,6 +254,40 @@ class DynamicLayerUpgrade extends LayerUpgrade
     }
 }
 
+class DynamicSabotageUpgrade extends LayerUpgrade
+{
+    constructor(getCost, getDescription, getPrice, getEffect, cfg)
+    {
+        super(null, null, getPrice, getEffect, null, cfg);
+        this.getCost = getCost;
+        this.description = getDescription(this);
+    }
+    buy()
+    {
+        if(!this.isBuyable()) return;
+        if(game.sabotageLayer.sabotagePoints.gte(this.getPrice))
+        {
+            game.sabotageLayer.sabotagePoints = game.sabotageLayer.sabotagePoints.sub(this.getPrice);
+            this.level = this.level.add(1);
+        }
+    }
+
+    buyMax()
+    {
+        if(!this.isBuyable()) return;
+        const oldLvl = new Decimal(this.level);
+        this.level = new Decimal(Utils.determineMaxLevel(this.currentCostLayer().resource, this));
+        if(this.level.sub(oldLvl).gt(0) && this.level.lt(1e9))
+        {
+            this.currentCostLayer().resource = this.currentCostLayer().resource.sub(this.getPrice(this.level.sub(1)));
+        }
+        while(this.currentPrice().lte(this.currentCostLayer().resource) && this.level.lt(1e9) && this.level.lt(this.maxLevel))
+        {
+            this.buy();
+        }
+    }
+}
+
 class ResourceUpgrade extends AbstractUpgrade
 {
     constructor(description, getPrice, getEffect, resource, cfg)

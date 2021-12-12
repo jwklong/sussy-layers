@@ -16,6 +16,7 @@
     <meta name="og:image" content="https://jwklong.github.io/sussy-layers/cover.png"/>
 
     <link rel="stylesheet" href="css/main.css"/>
+    <link href="https://allfont.net/allfont.css?fonts=comic-sans-ms" rel="stylesheet" type="text/css"/>
     <link id="theme" rel="stylesheet" href="css/themes/sussy.css"/>
 </head>
 <body>
@@ -40,6 +41,7 @@
                 <layer-locked-button v-if="!isMeta" @click="settings.tab = 'Aleph'" :layerid="3"><img alt="T" class="inline" src="favicon.png"> Tasks</layer-locked-button>
                 <layer-locked-button @click="settings.tab = 'ReStack'" :layerid="9"><img alt="R" class="inline" src="images/layercoin.png"/> ReStack</layer-locked-button>
                 <layer-locked-button v-if="isMeta" @click="settings.tab = 'Sabotage'" :layerid="1e250">○ Sabotage</layer-locked-button>
+                <button v-if="canHack" @click="settings.tab = 'Hackers'">Hackers</button>
             </div>
         </nav>
         <news-ticker v-if="settings.newsTicker"></news-ticker>
@@ -58,6 +60,7 @@
         <sabotage-layer v-if="settings.tab === 'Sabotage'"></sabotage-layer>
         <restack-tab v-if="settings.tab === 'ReStack'"></restack-tab>
         <automator-tab v-if="settings.tab === 'Automators'"></automator-tab>
+        <hackers-tab v-if="settings.tab === 'Hackers'"></hackers-tab>
         <guide-tab v-if="settings.tab === 'Guide'"></guide-tab>
         <changelog-tab v-if="settings.tab === 'Changelog'"></changelog-tab>
     </main>
@@ -102,6 +105,7 @@
 <script src="js/mods/sabotagelayer.js"></script>
 <script src="js/classes/achievement.js"></script>
 <script src="js/classes/automator.js"></script>
+<script src="js/mods/hacker2.js"></script>
 <script src="js/classes/restacklayer.js"></script>
 <script src="js/classes/metalayer.js"></script>
 <script src="js/classes/notification.js"></script>
@@ -132,7 +136,9 @@
 <script src="js/components/aleph-layer.js"></script>
 <script src="js/mods/sabotage-layer.js"></script>
 <script src="js/components/automator.js"></script>
+<script src="js/mods/hacker1.js"></script>
 <script src="js/components/automator-tab.js"></script>
+<script src="js/mods/hackers-tab.js"></script>
 <script src="js/components/restack-tab.js"></script>
 <script src="js/components/meta-layer.js"></script>
 <script src="js/components/news-ticker.js"></script>

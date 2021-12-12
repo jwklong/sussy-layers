@@ -43,6 +43,16 @@ const game = {
                 getEffectDisplay: effectDisplayTemplates.automator()
             })),
     },
+    hackers: {
+        autoKiller: new Hacker("Auto Upgrade Killers", "Automatically buys max on all killers", () =>
+        {
+            game.metaLayer.maxAll()
+        }, new DynamicLayerUpgrade(level => Math.floor(level / 3) + 1, () => null, () => "Decrease the Automator interval",
+            level => Decimal.pow(10, PrestigeLayer.getPrestigeCarryOverForLayer(level.toNumber()) * [0.2, 0.5, 0.8][level.toNumber() % 3]),
+            level => level.gt(0) ? Math.pow(0.8, level.toNumber() - 1) * 360 : Infinity, null, {
+                getEffectDisplay: effectDisplayTemplates.automator()
+            }))
+    },
     volatility: {
         layerVolatility: new DynamicLayerUpgrade(level => level + 1, level => level,
             function()

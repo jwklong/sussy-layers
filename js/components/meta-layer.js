@@ -23,7 +23,7 @@ Vue.component("meta-layer", {
         }
     },
     template: `<div class="meta-layer">
-<p class="resource">You have killed {{formatNumber(metaLayer.resource, 2, 0, 1e9)}} <resource-name :layerid="metaLayer.layer.floor()"></resource-name> times</p>
+<p class="resource">You have killed <resource-name :layerid="metaLayer.layer.floor()"></resource-name> {{formatNumber(metaLayer.resource, 2, 0, 1e9)}} times</p>
 <p class="resource alpha" v-if="metaLayer.layer.gt(0)">You have approx. {{formatNumber(metaLayer.getApproxAlpha(), 2, 0, 1e9)}} <resource-name :layerid="0"></resource-name></p>
 <p class="layer">You are on Layer {{formatNumber(metaLayer.layer.add(1), 2, 0, 1e12)}}</p>
 <p>Your kills are multiplied by x{{formatNumber(metaLayer.getMultiPS(), 2, 2)}} each second
