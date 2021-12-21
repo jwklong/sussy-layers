@@ -130,7 +130,7 @@ class ReStackLayer
                         }
                     }),
                 new RestackLayerUpgrade("Unlock Hackers",
-                    level => new Decimal("1ee340"),
+                    level => new Decimal("1ee333"),
                     level => level.gt(0), {
                         maxLevel: 1,
                         getEffectDisplay: function()
