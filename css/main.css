@@ -54,7 +54,7 @@
     outline: 0;
     user-select: none;
     font-variant-numeric: tabular-nums;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: "Comic Sans MS", "Comic Sans", "comic-sans-ms-regular";
 }
 
 header{
