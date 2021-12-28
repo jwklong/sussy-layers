@@ -159,7 +159,7 @@ Vue.component("settings-menu", {
     First Letter of a tab ([L]ayers, [V]olatility) to select it; C to select Achievements</p>
 </div>
 <div class="credits">
-    <h1>Layer Finder by jwklong<h1>
+    <h1>Layer Finder by jwklong</h1>
     <h3>Layer ID:</h3>
     <input type="input" min="1" max="Infinity" id="layerID">
     <button onclick="functions.layerFinder(document.getElementById('layerID').value)">Get Layer</button>
