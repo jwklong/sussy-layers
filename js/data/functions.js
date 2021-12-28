@@ -354,5 +354,58 @@ const functions = {
         functions.generateLayer(0);
         functions.loadGame(initialGame);
         game.currentLayer = game.layers[0];
+    },
+    hslToHex: function(h, s, l) {
+        l /= 100;
+        const a = s * Math.min(l, 1 - l) / 100;
+        const f = n => {
+            const k = (n + h / 30) % 12;
+            const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+            return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
+        };
+        return `#${f(0)}${f(8)}${f(4)}`;
+    },
+
+    textColor: function(layer)
+    {
+        const lid = new Decimal(layer);
+        if(lid.gte(INFINITY3))
+        {
+            return "#ff9100";
+        }
+        if(lid.gte(INFINITY2))
+        {
+            return "#00ffb7";
+        }
+        if(lid.gte(INFINITY))
+        {
+            return "#ff00ff";
+        }
+        let h = 33 * Math.min(lid.toNumber(), 10000);
+        if(lid.gt(10000))
+        {
+            h += Decimal.log10(lid.div(10000)).toNumber() * 600;
+        }
+        let s = Math.min(100, 10 * layer);
+        return this.hslToHex(h,s,50);
+    },
+    textGlow: function(layer)
+    {
+        const thickness = 0.025 * layer;
+        const t = [Math.min(0.7, thickness), Math.min(0.7, thickness / 2),
+            Math.min(0.7, Math.max(0, thickness - 0.3) / 4)];
+        return "0px 0px " + t[0] + "em currentcolor"+
+            ",0px 0px " + t[1] + "em currentcolor"+
+            ",0px 0px " + t[2] + "em currentcolor";
+    },
+    layerFinder: function(layer) {
+        layer = new Decimal(layer)
+        document.getElementById("layernameoutput").style.color = this.textColor(layer)
+        document.getElementById("layercoloroutput").style.color = this.textColor(layer)
+        document.getElementById("layercoloroutput").innerHTML = this.textColor(layer)
+        document.getElementById("layernameoutput").style.textShadow = this.textGlow(layer)
+        document.getElementById("layerglowoutput").style.textShadow = this.textGlow(layer)
+        document.getElementById("layerglowoutput").innerHTML = this.textGlow(layer)
+        document.getElementById("layernameoutput").innerHTML = PrestigeLayer.getNameForLayer(layer)
     }
 };

@@ -159,10 +159,21 @@ Vue.component("settings-menu", {
     First Letter of a tab ([L]ayers, [V]olatility) to select it; C to select Achievements</p>
 </div>
 <div class="credits">
+    <h1>Layer Finder by jwklong<h1>
+    <h3>Layer ID:</h3>
+    <input type="input" min="1" max="Infinity" id="layerID">
+    <button onclick="functions.layerFinder(document.getElementById('layerID').value)">Get Layer</button>
+    <h3>Output:</h3>
+    <h2>Layer: <a id="layernameoutput"></a></h2>
+    <h3>Hex Color: <a id="layercoloroutput"></a></h3>
+    <h3>Glow Info: <a id="layerglowoutput"></a></h3>
+</div>
+<div class="credits">
     <h4>Credits</h4>
     <p>Inspiration: Antimatter Dimensions by hevipelle, Infinite Layers by dan-simon</p>
     <p>Original Game (Omega Layers) created by VeproGames</p>
     <p>Powered by vue.js and break_eternity.min.js</p>
+    <p>&#3486;-l&lambda;&gamma;ers v1.1.0 demo 1.9 P2</p>
 </div>
 </div>`
 })
