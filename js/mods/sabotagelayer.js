@@ -52,7 +52,7 @@ class SabotageLayer
 
     getSabotageBoostFromLayer()
     {
-        if(game.highestUpdatedLayer < new Decimal("1.8e308")) return new Decimal(0);
+        if(game.metaLayer.layer.lte(new Decimal("1.8e308"))) return new Decimal(0);
         return Decimal.log10(game.metaLayer.layer).sub("308")
     }
 
