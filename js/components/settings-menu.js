@@ -5,8 +5,8 @@ Vue.component("settings-menu", {
             settings: game.settings,
             exportString: "The exported Save String will appear here. Keep it somewhere safe." +
                 " Click Import to load the save string from the text field.",
-            themes: [["sussy!11!1!", "sussy.css"], ["purply", "purply.css"], ["hacker", "hacker.css"], ["kghfdgjfsh", "bad.css"], ["gone", "gone.css"], ["light", "light.css"], ["eXPerience", "experience.css"], ["spooky", "spooky.css"], ["Dark", "dark.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"]],
-            names: [["sussy layers", [["○","☛","🔫","🗡","ඞ"], "</-=+x>", ["<span class='flipped-v'>ඞ</span>", "α","β"]]], ["omega layers", ["αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ", "ψϝϛͱϻϙͳϸ", ["<span class='flipped-v'>Ω</span>", "<span class='flipped-v'>Ω</span><sup>2</sup>","<span class='flipped-v'>Ω</span><sup>3</sup>"]]], ["alphabet", ["abcdefghijklmnopqrstuvwxyz", "123456789", ["A","B","C"]]], ["symbols", ['!"£$%^&*;:@', "<,[{}].>", ["+","×","÷"]]], ["binary", ['01', "01", ["2","3","4"]]]]
+            themes: [["sussy!11!1!", "sussy.css"], ["purply", "purply.css"], ["hacker", "hacker.css"], ["kghfdgjfsh", "bad.css"], ["gone", "gone.css"], ["light", "light.css"], ["eXPerience", "experience.css"], ["spooky", "spooky.css"], ["Dark", "dark.css"], ["Neon", "neon.css"], ["Godot Blue", "darkblue.css"], ["no theme", ""]],
+            names: [["sussy layers", [["○","☛","🔫","🗡","ඞ"], "</-=+x>", ["<span class='flipped-v'>ඞ</span>", "α","β"]]], ["omega layers", ["αβγδεζηθικλμνξοπρστυφχψωΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ", "ψϝϛͱϻϙͳϸ", ["<span class='flipped-v'>Ω</span>", "<span class='flipped-v'>Ω</span><sup>2</sup>","<span class='flipped-v'>Ω</span><sup>3</sup>"]]], ["alphabet", ["abcdefghijklmnopqrstuvwxyz", "123456789", ["A","B","C"]]], ["symbols", ['!"£$%^&*;:@', "<,[{}].>", ["+","×","÷"]]], ["binary", ['01', "01", ["2","3","4"]]], ["amogus gang", ["ඐඑඒඓඔඕඖකඛගඝඞඟචඡජඣඤඥඦටඨඩඪණඬතථදධනඳපඵබභමඹයරල", ["---","--","-","+","++","+++"], ["<span class='flipped-v'>ඞ</span>+", "<span class='flipped-v'>ඞ</span>++","<span class='flipped-v'>ඞ</span>+++"]]],]
         }
     },
     mounted: function()
@@ -173,7 +173,7 @@ Vue.component("settings-menu", {
     <p>Inspiration: Antimatter Dimensions by hevipelle, Infinite Layers by dan-simon</p>
     <p>Original Game (Omega Layers) created by VeproGames</p>
     <p>Powered by vue.js and break_eternity.min.js</p>
-    <p>&#3486;-l&lambda;&gamma;ers v1.1.0 demo 1.9 P2</p>
+    <p>&#3486;-l&lambda;&gamma;ers v1.1.0 demo 1.9 P3</p>
 </div>
 </div>`
 })

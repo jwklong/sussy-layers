@@ -160,8 +160,8 @@ class ReStackLayer
             substractLayers: this.upgradeTree[4][0],
             resourcePowerersStrength: this.upgradeTree[5][0],
             resourceMultipliersLevelScaling: this.upgradeTree[5][1],
-            unlockHackers: this.upgradeTree[6][0],
-            noReset: this.upgradeTree[6][1]
+            noReset: this.upgradeTree[6][0],
+            unlockHackers: this.upgradeTree[6][1]
         };
     }
 
