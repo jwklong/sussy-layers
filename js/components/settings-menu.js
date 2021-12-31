@@ -173,7 +173,7 @@ Vue.component("settings-menu", {
     <p>Inspiration: Antimatter Dimensions by hevipelle, Infinite Layers by dan-simon</p>
     <p>Original Game (Omega Layers) created by VeproGames</p>
     <p>Powered by vue.js and break_eternity.min.js</p>
-    <p>&#3486;-l&lambda;&gamma;ers v1.1.0 demo 1.9 P3</p>
+    <p>&#3486;-l&lambda;&gamma;ers v1.1.0 demo 1.9 P4</p>
 </div>
 </div>`
 })

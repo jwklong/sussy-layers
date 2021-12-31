@@ -1,3 +1,8 @@
+@font-face{
+    font-family: comic-sans-font;
+    src: url('../fonts/comic.ttf');
+}
+
 :root{
     --background-body: #000000;
     --background-header: #ff00ff;
@@ -16,6 +21,7 @@
     --notification--success--border: #000000;
     --notification--special: #ff00ff;
     --notification--special--border: #000000;
+    --primary-font: comic-sans-font
 }
 
 @keyframes resource-hue-spin{
@@ -54,7 +60,7 @@
     outline: 0;
     user-select: none;
     font-variant-numeric: tabular-nums;
-    font-family: "Comic Sans MS", "Comic Sans", "comic-sans-ms-regular";
+    font-family: var(--primary-font);
 }
 
 header{
