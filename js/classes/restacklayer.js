@@ -128,7 +128,9 @@ class ReStackLayer
                         {
                             return this.level.gt(0) ? "Doesn't reset" : "Resets";
                         }
-                    }),
+                    })
+            ],
+            [
                 new RestackLayerUpgrade("Unlock Hackers",
                     level => new Decimal("1ee333"),
                     level => level.gt(0), {
@@ -149,7 +151,7 @@ class ReStackLayer
         this.upgradeTree[5][0].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][1]]);
         this.upgradeTree[5][1].setRequirements([this.upgradeTree[4][0]], [this.upgradeTree[5][0]]);
         this.upgradeTree[6][0].setRequirements([this.upgradeTree[5][0], this.upgradeTree[5][1]], []);
-        this.upgradeTree[6][1].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[6][0]]);
+        this.upgradeTree[7][0].setRequirements([this.upgradeTree[6][0]], [this.upgradeTree[6][0]]);
         this.upgradeTreeNames = {
             resourceMultiplier: this.upgradeTree[0][0],
             resourceMultiplierUpgrades: this.upgradeTree[1][0],
@@ -161,7 +163,7 @@ class ReStackLayer
             resourcePowerersStrength: this.upgradeTree[5][0],
             resourceMultipliersLevelScaling: this.upgradeTree[5][1],
             noReset: this.upgradeTree[6][0],
-            unlockHackers: this.upgradeTree[6][1]
+            unlockHackers: this.upgradeTree[7][0]
         };
     }
 
